@@ -1,0 +1,71 @@
+#-- トリガー --#
+on:
+  push:
+    branches:
+      - main
+name: Deploy
+#-- FTP経由でサーバーへアップロード --#
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    #-- githubより情報を取得 --#
+    steps:
+      - name: Set version
+        id: version
+        run: |
+          REPOSITORY=$(echo ${{ github.repository }} | sed -e "s#.*/##")
+          echo ::set-output name=rep::$REPOSITORY
+          COMMENT=$(echo '${{ github.event.head_commit.message }}' | tr -d "\n")
+          echo ::set-output name=comment::$COMMENT
+          CODER=$(echo '${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || (github.actor == 'yuchulK' && '<@U02K2FFERUP>') || (github.actor == 'koide-fwh' && '<@U02CTJ1FCJH>')  }}')
+          echo ::set-output name=coder::$CODER
+      - uses: actions/checkout@main
+      - run: |
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          LOCAL_DIR: dist
+          REMOTE_DIR: /fwh.co.jp/public_html/test/"${{ steps.version.outputs.rep }}"
+      #-- Slack通知 --#
+      # 成功
+      - name: Slack Notification on Success
+        if: ${{ success() }}
+        uses: tokorom/action-slack-incoming-webhook@main
+        env:
+          INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          text: ${{ steps.version.outputs.rep }}のLPがテストサーバにアップされました。修正がある場合は${{ env.FHW_CODER }}にご相談ください
+          attachments: |
+            [
+              {
+                "color": "good",
+                "author_name": "${{ github.actor }}",
+                "author_icon": "${{ github.event.sender.avatar_url }}",
+                "fields": [
+                  {
+                    "title": "testURL",
+                    "value": "https://test.fwh.co.jp/${{ steps.version.outputs.rep }}"
+                  },
+                  {
+                    "title": "Commit Message",
+                    "value": "${{ steps.version.outputs.comment }}"
+                  },
+                  {
+                    "title": "coder",
+                    "value": "${{ steps.version.outputs.coder }}"
+                  }
+                ]
+              }
+            ]
+      # 失敗
+      - name: Slack Notification on Failure
+        if: ${{ failure() }}
+        uses: tokorom/action-slack-incoming-webhook@main
+        env:
+          INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          text: failure!
