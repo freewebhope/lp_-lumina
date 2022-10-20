@@ -5,10 +5,6 @@
 
 html {
   /* ベースフォント */
-  font-family: 'Noto Sans JP', sans-serif;
-  color: #252525;
-}
-
-::placeholder{
-  color: #757575;
+  font-family: 'Noto Serif JP', serif;
+  color: #5A5655;
 }

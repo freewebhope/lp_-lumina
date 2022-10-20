@@ -1,3 +1,5 @@
 module.exports = {
-  'notosans': "Noto Sans JP",
+  'NotoSansJP': "'Noto Sans JP', sans-serif",
+  'BarlowCondensed':"'Barlow Condensed', sans-serif",
+  'NotoSerifJP':"'Noto Serif JP', serif;", 
 }

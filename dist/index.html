@@ -28,24 +28,1304 @@ OGP
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <![endif]-->
     <link rel="icon" href="images/favicon.ico">
-    <!--NotoSans-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900&display=swap&subset=japanese">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
     <link rel="prefetch" href="js/function.js">
     <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="./lib/swiper/swiper.min.css"/>
+    <script src="./lib/swiper/swiper-bundle.min.js"></script>
 </head>
 <style>
-    /* 以下テストサーバ用のCSSなので最後に消す */
-    
-    #__bs_notify__ {
-        font-size: 20px !important;
-        background-color: rgba(0, 0, 0, .3) !important;
+    .swiper-initialized{
+        position: relative;
     }
+    .swiper-button-prev{
+        position: absolute;
+        z-index: 1;
+        top: 2rem;
+        left: 0.2rem;
+    }
+    .swiper-button-prev::before{
+        content: "\f053";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 700;
+        font-size: 0.8rem;
+        top: 0;
+        color: #B9A261;
+    }
+    .swiper-button-next{
+        position: absolute;
+        z-index: 1;
+        top: 2rem;
+        right: 0.2rem;
+    }
+    .swiper-button-next::before{
+        content: "\f054";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 700;
+        font-size: 0.8rem;
+        top: 0;
+        color: #B9A261;
+    }
+    .swiper-wrapper{
+        position: relative;
+    }
+    @media screen and (min-width:768px){
+        .swiper-button-prev{
+            left: 2.8rem;
+        }
+        .swiper-button-next{
+            right: 2.8rem;
+            }
+        }
 </style>
+<script src="https://kit.fontawesome.com/eea364082e.js" crossorigin="anonymous"></script>
+<body class="text-[20px]">
+    <div class=" overflow-hidden relative">
+        <div id="js-top">
+        <header>
+            <div class="py-o-20 w-o-689 md:w-o-1450 mx-auto flex justify-between items-center">
+                <img src="./images/logo.png" alt="家族葬のルミーナ" class="w-o-228 block">
+                <div class="hidden md:block">
+                    <ul class="flex items-end gap-o-30">
+                        <li class="text-center">
+                            <a href="">
+                                <img src="./images/header_icon01.png" alt="" class="w-o-32 block mx-auto mb-o-4">
+                                <p class="text-16 font-bold block">選べる葬儀場</p>
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a href="">
+                                <img src="./images/header_icon02.png" alt="" class="w-o-28 block mx-auto mb-o-4">
+                                <p class="text-16 font-bold block">料金・プラン</p>
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a href="">
+                                <img src="./images/header_icon03.png" alt="" class="w-o-25 block mx-auto mb-o-4">
+                                <p class="text-16 font-bold block">ルミーナのこだわり</p>
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a href="">
+                                <img src="./images/header_icon04.png" alt="" class="w-o-30 block mx-auto mb-o-4">
+                                <p class="text-16 font-bold block">葬儀の流れ</p>
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a href="">
+                                <img src="./images/header_icon05.png" alt="" class="w-o-43 block mx-auto mb-o-4">
+                                <p class="text-16 font-bold block">よくあるご質問</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex items-center gap-o-8">
+                    <img src="./images/telIcon.png" alt="電話のアイコン" class="w-o-40">
+                    <p class="font-BarlowCondensed text-blue text-54">0120-637-024</p>
+                </div>
+                <div class="bg-[#F4F4F4] w-[40px] flex items-center justify-center py-o-16 rounded-sm md:hidden">
+                    <div class="flex gap-o-6 flex-wrap w-[28px] text-center justify-center">
+                        <span class="w-full h-[3px] block bg-[#5A5655] rounded-md"></span>
+                        <span class="w-full h-[3px] block bg-[#5A5655] rounded-md"></span>
+                        <span class="w-full h-[3px] block bg-[#5A5655] rounded-md"></span>
+                        <p class=" font-NotoSansJP text-10 text-center">menu</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- keyv -->
+        <section>
+            <div class=" bg-[url(../images/keyv_bg.jpg)] md:bg-[url(../images/keyv_bg_pc.jpg)]">
+                <div class="pt-o-24 pb-o-424 md:pt-o-56 md:pb-o-80 relative md:w-o-1000 md:mx-auto">
+                    <img src="./images/keyv_img01.png" alt="家族葬のらくおうグループ" class="block w-o-550 mx-auto md:ml-0 mb-o-24">
+                    <div class="text-center text-30 md:text-28 md:text-left font-bold tracking-o-100 leading-relaxed relative w-o-550 md:w-auto mx-auto mb-o-24 md:absolute right-0 md:[writing-mode:vertical-rl] z-10">
+                        <span class="block w-o-26 md:w-o-15 absolute left-0 md:left-o-3 md:top-o-262 md:rotate-[270deg]"><img src="./images/keyv_leftFlame.png" alt=""></span>
+                        <p class="md:bg-[#FCFAEE] md:pt-o-20">もっと無理なく見送りませんか？</p>
+                        <p class="md:bg-[#FCFAEE] md:mr-o-12 md:h-o-280 md:py-o-20">家族なんだから</p>
+                        <span class="block w-o-26 md:w-o-15 absolute right-0 bottom-0 md:bottom-auto md:-top-o-4 md:rotate-[270deg] md:right-o-4"><img src="./images/keyv_rigntFlame.png" alt=""></span>
+                    </div>
+                    <h2 class="text-center text-gold font-bold leading-snug mb-o-28 md:text-left md:relative md:z-10">
+                        <span class="text-40 block">三田市の葬儀なら</span>
+                        <span class="text-69 block">家族葬のルミーナ</span>
+                    </h2>
+                    <div class="w-o-550 mx-auto md:ml-0 md:relative md:z-10">
+                        <img src="./images/keyv_price.png" alt="地域密着のやさしい価格 130,000円〜" class="w-full block">
+                    </div>
+                    <img src="./images/keyv_flower.png" alt="" class=" absolute -left-[.72rem] bottom-0 w-o-695 md:w-o-830 md:left-auto md:-right-o-96 md:-bottom-o-110">
+                    <img src="./images/keyv_woman.png" alt="" class=" absolute -right-[.24rem] bottom-0 w-o-268 md:w-o-303 md:right-o-80">  
+                </div>
+            </div>
+            <div class="bg-gold relative -m-o-80 md:mt-0 md:pb-o-220">
+                <div class="pt-o-36 pb-o-96 relative">
+                    <div class="flex items-center justify-between w-o-690 mx-auto mb-o-28">
+                        <img src="./images/keyv_medal01.png" alt="TV CM放送中" class="block w-o-148">
+                        <img src="./images/keyv_medal02.png" alt="全国葬儀件数  第1位 獲得" class="block w-o-250">
+                        <img src="./images/keyv_medal03.png" alt="ご依頼件数 17000件" class="block w-o-250">
+                    </div>
+                    <ul class="text-17 font-medium w-o-690 mx-auto">
+                        <li class="mb-o-8">※1 無料の会員登録、資料請求後、割引券利用時の価格です。</li>
+                        <li>※2 グループ会社実績。TPCマーケティングリサーチ㈱調べ争議件数（葬儀専門会社部門にてFCを除く2021年度）（葬儀専門会社とは葬儀のみを事業として扱い、自社で葬儀施工まで行う会社のこと）</li>
+                    </ul>
+                    <img src="./images/keyv_box.png" alt="今なら事前にご連絡いただいた方限定　最大10万円の割引券贈呈" class=" absolute -bottom-o-260 w-o-740 md:w-o-828 left-0 right-0 m-auto md:-bottom-o-300">
+                </div>
+            </div>
+        </section>
+        </div>
+        <!-- sec01 -->
+        <section>
+            <div class="bg-[url(../images/sec01_bg.png)] bg-[length:100%_auto] bg-no-repeat md:bg-[url(../images/sec01_bg_pc.png)] bg-right-top">
+                <h2 class="[writing-mode:vertical-rl] mx-auto pt-o-400 md:pt-o-240 leading-[2] tracking-o-100 text-32 mb-o-88 md:text-22 md:leading-[2.2]">
+                    <span class="block">「ありがとう」を伝える</span>
+                    <span class="block">大切な場所だから</span>
+                    <span class="block">気兼ねなく安心して過ごせる</span>
+                    <span class="block">時間をご提供したい</span>
+                    <span class="block">私たちルミーナはそんな想いで</span>
+                    <span class="block">葬儀を行なっております。</span>
+                </h2>
+                <div class="md:flex md:items-center md:justify-center md:gap-o-40 md:mt-o-148">
+                    <picture class="block">
+                        <source srcset="./images/sec01_img01_pc.png" media="(min-width: 768px)"/>
+                        <img src="./images/sec01_img01.png" alt="女性の画像" class="block w-full md:w-o-500">
+                    </picture>
+                    <div class="text-30 md:text-20 font-medium w-o-688 mx-auto mt-o-68 md:mt-0 tracking-o-30 leading-loose md:mx-0 md:w-o-473">
+                        <p>大切な方とのお別れには様々な想いや、感情が内面にわき上がるモノだと思います。</p>
+                        <p>だからこそご遺族の悲しみを和らげる、ホスピタリティの心を大切にし「選んで良かった」と思っていただける真心の込もったサポートをさせていただきます。</p>
+                    </div>
+                    <img src="./images/sec01_img02.png" alt="男性と女性の画像" class="block w-full mt-o-40 md:hidden">
+                </div>
+            </div>
+        </section>
+        <!-- sec02 -->
+        <section class="py-o-64 md:pb-o-148">
+            <div class="w-o-688 md:w-o-768 mx-auto">
+                <div class=" font-medium flex items-end justify-center">
+                    <h2 class="flex items-center justify-center gap-o-12"><span class=" font-NotoSansJP tracking-[0.05em] text-blue text-74 m:text-82">TV CM</span><span class="text-59 md:text-65">放送中</span></h2>
+                    <img src="./images/sec02_dec01.png" alt="女性の画像" class="block w-o-185">
+                </div>
+                <div class="w-full aspect-video ">
+                    <iframe class=" w-full h-full" width="" height="" src="https://www.youtube.com/embed/uZFX-OCyR4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        <!-- sec03 -->
+        <section class="pt-o-72 pb-o-40 md:pb-o-88 bg-[url(../images/sec03_bg.jpg)] md:bg-[url(../images/sec03_bg_pc.jpg)] bg-cover bg-no-repeat">
+            <div class="md:mx-auto mx-auto w-o-671 md:w-o-1000">
+                <h2>
+                    <picture class="block">
+                        <source srcset="./images/sec03_head_pc.png" media="(min-width: 768px)"/>
+                        <img src="./images/sec03_head.png" alt="三田市の各地にある葬儀場・火葬場をお選びいただけます" class="block mx-auto w-o-671 md:w-o-660 mb-o-48">
+                    </picture>
+                </h2>
+                <div class="w-full aspect-video">
+                    <iframe src="https://www.google.com/maps/d/embed?mid=15TKjJA9A83OY2FG_UMfCjU7LLiSWpmI&ehbc=2E312F" class="w-full h-full"></iframe>
+                </div>
+            </div>
+            <div class=" mt-o-48  md:w-o-1000 md:flex md:flex-wrap md:items-start md:justify-between mx-auto">
+                <div class=" w-o-688 md:w-o-455 mx-auto md:mx-0 bg-white border-gold border-double border-[4px] md:border-[6px]">
+                    <div class="w-o-612 md:w-o-403 mx-auto pt-o-28 pb-o-36 md:py-o-20 ">
+                        <h3 class="text-46 md:text-28 text-center text-gold font-bold mb-o-20">ルミーナホール三田中央</h3>
+                        <ul class=" font-medium text-30 md:text-20 mb-o-28 font-NotoSansJP">
+                            <li>兵庫県三田市三田町12-37</li>
+                            <li>規模：〜80人</li>
+                        </ul>
+                        <div class="flex items-center gap-o-12 mb-o-12">
+                            <img src="./images/sec03_mapIcon.png" alt="pinアイコン" class="w-o-28 md:w-o-19 block">
+                            <p class="text-30 md:text-16 font-bold tracking-o-30 font-NotoSansJP">JR福知山線「三田駅」から徒歩約7分</p>
+                        </div>
+                        <img src="./images/sec03_slider01_img01.png" alt="" class="w-o-612 mx-auto cursor-pointer" onclick="displaySlider(0)">
+                        <p class=" font-NotoSansJP font-medium text-28 md:text-20 my-o-40 leading-relaxed">写真をタップすると、大きな写真でご確認いただけます。</p>
+                        <ul class="flex flex-wrap justify-between">
+                            <li>
+                                <img src="./images/sec03_icon01.png" alt="駐車場" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon02.png" alt="駅近く" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon03.png" alt="安置可" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon04.png" alt="控室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon05.png" alt="浴室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon06.png" alt="バリアフリー" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class=" w-o-688 md:w-o-455 mx-auto md:mx-0 bg-white border-gold border-double border-[4px] md:border-[6px] mt-o-48 md:mt-0">
+                    <div class="w-o-612 md:w-o-403 mx-auto pt-o-28 pb-o-36 md:py-o-20 ">
+                        <h3 class="text-46 md:text-28 text-center text-gold font-bold mb-o-20">ルミーナホール三田中央</h3>
+                        <ul class=" font-medium text-30 md:text-20 mb-o-28 font-NotoSansJP">
+                            <li>兵庫県三田市三田町12-37</li>
+                            <li>規模：〜80人</li>
+                        </ul>
+                        <div class="flex items-center gap-o-12 mb-o-12">
+                            <img src="./images/sec03_mapIcon.png" alt="pinアイコン" class="w-o-28 md:w-o-19 block">
+                            <p class="text-30 md:text-16 font-bold tracking-o-30 font-NotoSansJP">JR福知山線「三田駅」から徒歩約7分</p>
+                        </div>
+                        <img src="./images/sec03_slider02_img01.png" alt="" class="w-o-612 mx-auto cursor-pointer" onclick="displaySlider(1)">
+                        <p class=" font-NotoSansJP font-medium text-28 md:text-20 my-o-40 leading-relaxed">写真をタップすると、大きな写真でご確認いただけます。</p>
+                        <ul class="flex flex-wrap justify-between">
+                            <li>
+                                <img src="./images/sec03_icon01.png" alt="駐車場" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon02.png" alt="駅近く" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon03.png" alt="安置可" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon04.png" alt="控室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon05.png" alt="浴室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon06.png" alt="バリアフリー" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class=" w-o-688 md:w-o-455 mx-auto md:mx-0 bg-white border-gold border-double border-[4px] md:border-[6px] mt-o-100">
+                    <div class="w-o-612 md:w-o-403 mx-auto pt-o-28 pb-o-36 md:py-o-20 ">
+                        <h3 class="text-46 md:text-28 text-center text-gold font-bold mb-o-20">ルミーナホール三田中央</h3>
+                        <ul class=" font-medium text-30 md:text-20 mb-o-28 font-NotoSansJP">
+                            <li>兵庫県三田市三田町12-37</li>
+                            <li>規模：〜80人</li>
+                        </ul>
+                        <div class="flex items-center gap-o-12 mb-o-12">
+                            <img src="./images/sec03_mapIcon.png" alt="pinアイコン" class="w-o-28 md:w-o-19 block">
+                            <p class="text-30 md:text-16 font-bold tracking-o-30 font-NotoSansJP">JR福知山線「三田駅」から徒歩約7分</p>
+                        </div>
+                        <img src="./images/sec03_slider03_img01.png" alt="" class="w-o-612 mx-auto cursor-pointer" onclick="displaySlider(2)">
+                        <p class=" font-NotoSansJP font-medium text-28 md:text-20 my-o-40 leading-relaxed">写真をタップすると、大きな写真でご確認いただけます。</p>
+                        <ul class="flex flex-wrap justify-between">
+                            <li>
+                                <img src="./images/sec03_icon01.png" alt="駐車場" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon02.png" alt="駅近く" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon03.png" alt="安置可" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon04.png" alt="控室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon05.png" alt="浴室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon06.png" alt="バリアフリー" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class=" w-o-688 md:w-o-455 mx-auto md:mx-0 bg-white border-gold border-double border-[4px] md:border-[6px] mt-o-48 md:mt-o-100">
+                    <div class="w-o-612 md:w-o-403 mx-auto pt-o-28 pb-o-36 md:py-o-20 ">
+                        <h3 class="text-46 md:text-28 text-center text-gold font-bold mb-o-20">ルミーナホール三田中央</h3>
+                        <ul class=" font-medium text-30 md:text-20 mb-o-28 font-NotoSansJP">
+                            <li>兵庫県三田市三田町12-37</li>
+                            <li>規模：〜80人</li>
+                        </ul>
+                        <div class="flex items-center gap-o-12 mb-o-12">
+                            <img src="./images/sec03_mapIcon.png" alt="pinアイコン" class="w-o-28 md:w-o-19 block">
+                            <p class="text-30 md:text-16 font-bold tracking-o-30 font-NotoSansJP">JR福知山線「三田駅」から徒歩約7分</p>
+                        </div>
+                        <img src="./images/sec03_slider04_img01.png" alt="" class="w-o-612 mx-auto cursor-pointer" onclick="displaySlider(3)">
+                        <p class=" font-NotoSansJP font-medium text-28 md:text-20 my-o-40 leading-relaxed">写真をタップすると、大きな写真でご確認いただけます。</p>
+                        <ul class="flex flex-wrap justify-between">
+                            <li>
+                                <img src="./images/sec03_icon01.png" alt="駐車場" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon02.png" alt="駅近く" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon03.png" alt="安置可" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon04.png" alt="控室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon05.png" alt="浴室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon06.png" alt="バリアフリー" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- sec04 -->
+        <section class="pt-o-60 md:pt-o-120">
+            <h2>
+                <picture class="block">
+                    <source srcset="./images/sec04_head_pc.png" media="(min-width: 768px)"/>
+                    <img src="./images/sec04_head.png" alt="どのプランでも品質は変わりませんルミーナの選べる3つのプラン" class="block mx-auto w-o-671 md:w-o-600 mb-o-48">
+                </picture>
+            </h2>
+            <ul class="">
+                <li>
+                    <div class="md:flex md:items-start md:justify-between md:w-o-1000 md:mx-auto md:pb-o-60">
+                        <div class="w-o-591 mx-auto md:w-o-500 md:mx-0">
+                            <div class="mb-o-28">
+                                <p class="text-32 md:text-28 font-bold">想いはそのまま  費用は最小限に</p>
+                                <p class="text-51 md:text-45 font-bold">火葬式プラン</p>
+                            </div>
+                            <img src="./images/sec04_price01.png" alt="会員価格130,000円〜" class="w-full block mb-o-20">
+                            <div>
+                                <p class="hidden md:block text-22 font-medium font-NotoSansJP leading-[2]">お通夜と告別式は行わず、火葬のみを行います。可能な限り葬儀の費用を抑え、身内だけで静かにお見送りしたい方におすすめのプランです。</p>
+                            </div>
+                        </div>
+                        <div class="md:w-o-457">
+                            <img src="./images/sec04_img01.jpg" alt="葬儀のイメージ画像" class="w-full block">
+                            <img src="./images/sec04_flow01.png" alt="葬儀の流れ" class="block w-o-615 mx-auto md:mx-0 -mt-o-80 md:mt-o-40 md:w-full"> 
+                        </div>
+                    </div>
+                    <div class="md:hidden text-28 md:text-22 font-medium font-NotoSansJP w-o-615 mx-auto mt-o-40 leading-o-18 pb-o-40 md:pb-0">
+                        <p>お通夜と告別式は行わず、火葬のみを行います。可能な限り葬儀の費用を抑え、身内だけで静かにお見送りしたい方におすすめのプランです。</p>
+                    </div>
+                    <div class="bg-[url(../images/sec04_checkBg.jpg)] md:bg-[url(../images/sec04_checkBg_pc.jpg)] bg-cover py-o-32">
+                        <img src="./images/sec04_checkTitle.png" alt="こんな方におすすめ" class="w-o-420 mx-auto md:w-o-360">
+                        <ul class="w-o-688 md:w-o-768 mx-auto bg-white border-gold border-double border-[4px] md:border-[6px] px-o-40 pt-o-48 pb-o-32 -mt-o-32">
+                            <li>
+                                <div class="flex items-center gap-o-12">
+                                    <span class="block w-o-28 h-o-28 rounded-[0.04rem] border-[0.02rem] border-[#898989] relative before:content-[''] before:absolute before:border-b-[0.08rem] before:border-l-[0.08rem] before:-rotate-45 before:border-blue before:w-o-30 before:h-o-15"></span><p class="text-28 md:text-22 font-medium font-NotoSansJP">可能な限り葬儀の費用を抑えたい</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center gap-o-12 mt-o-24">
+                                    <span class="block w-o-28 h-o-28 rounded-[0.04rem] border-[0.02rem] border-[#898989] relative before:content-[''] before:absolute before:border-b-[0.08rem] before:border-l-[0.08rem] before:-rotate-45 before:border-blue before:w-o-30 before:h-o-15"></span><p class="text-28 md:text-22 font-medium font-NotoSansJP">身内だけで静かに見送りたい</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center gap-o-12 mt-o-24">
+                                    <span class="block w-o-28 h-o-28 rounded-[0.04rem] border-[0.02rem] border-[#898989] relative before:content-[''] before:absolute before:border-b-[0.08rem] before:border-l-[0.08rem] before:-rotate-45 before:border-blue before:w-o-30 before:h-o-15"></span><p class="text-28 md:text-22 font-medium font-NotoSansJP">短い時間でもしっかり見送りたい</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="w-o-688 mx-auto md:w-o-768">
+                            <p class="text-21 font-medium mt-o-16">※1 無料の会員登録、資料請求後、割引券利用時の価格です。</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="md:flex md:items-start md:justify-between md:w-o-1000 md:mx-auto md:pb-o-60 pt-o-80 md:pt-o-100">
+                        <div class="w-o-591 mx-auto md:w-o-500 md:mx-0">
+                            <div class="mb-o-28">
+                                <p class="text-32 md:text-28 font-bold">費用も時間も控えめに</p>
+                                <p class="text-51 md:text-45 font-bold">一日葬プラン</p>
+                            </div>
+                            <img src="./images/sec04_price02.png" alt="会員価格300,000円〜" class="w-full block mb-o-20">
+                            <div>
+                                <p class="hidden md:block text-22 font-medium font-NotoSansJP leading-[2]">お通夜は行わず、告別式と火葬のみを1日で行います。費用と時間は抑えつつ、告別式で故人様をしっかりお見送りしたい方は、こちらのプランがおすすめです。</p>
+                            </div>
+                        </div>
+                        <div class="md:w-o-457">
+                            <img src="./images/sec04_img02.jpg" alt="葬儀のイメージ画像" class="w-full block">
+                            <img src="./images/sec04_flow02.png" alt="葬儀の流れ" class="block w-o-615 mx-auto md:mx-0 -mt-o-80 md:mt-o-40 md:w-full"> 
+                        </div>
+                    </div>
+                    <div class="md:hidden text-28 md:text-22 font-medium font-NotoSansJP w-o-615 mx-auto mt-o-40 leading-o-18 pb-o-40 md:pb-0">
+                        <p>お通夜は行わず、告別式と火葬のみを1日で行います。費用と時間は抑えつつ、告別式で故人様をしっかりお見送りしたい方は、こちらのプランがおすすめです。</p>
+                    </div>
+                    <div class="bg-[url(../images/sec04_checkBg.jpg)] md:bg-[url(../images/sec04_checkBg_pc.jpg)] bg-cover py-o-32">
+                        <img src="./images/sec04_checkTitle.png" alt="こんな方におすすめ" class="w-o-420 mx-auto md:w-o-360">
+                        <ul class="w-o-688 md:w-o-768 mx-auto bg-white border-gold border-double border-[4px] md:border-[6px] px-o-40 pt-o-48 pb-o-32 -mt-o-32">
+                            <li>
+                                <div class="flex items-center gap-o-12">
+                                    <span class="block w-o-28 h-o-28 rounded-[0.04rem] border-[0.02rem] border-[#898989] relative before:content-[''] before:absolute before:border-b-[0.08rem] before:border-l-[0.08rem] before:-rotate-45 before:border-blue before:w-o-30 before:h-o-15"></span><p class="text-28 md:text-22 font-medium font-NotoSansJP">費用は抑えたいが、別れの時間はほしい</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center gap-o-12 mt-o-24">
+                                    <span class="block w-o-28 h-o-28 rounded-[0.04rem] border-[0.02rem] border-[#898989] relative before:content-[''] before:absolute before:border-b-[0.08rem] before:border-l-[0.08rem] before:-rotate-45 before:border-blue before:w-o-30 before:h-o-15"></span><p class="text-28 md:text-22 font-medium font-NotoSansJP">お通夜はしなくても良い</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center gap-o-12 mt-o-24">
+                                    <span class="block w-o-28 h-o-28 rounded-[0.04rem] border-[0.02rem] border-[#898989] relative before:content-[''] before:absolute before:border-b-[0.08rem] before:border-l-[0.08rem] before:-rotate-45 before:border-blue before:w-o-30 before:h-o-15"></span><p class="text-28 md:text-22 font-medium font-NotoSansJP">告別式だけを行いたい</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="w-o-688 mx-auto md:w-o-768">
+                            <p class="text-21 font-medium mt-o-16">※1 無料の会員登録、資料請求後、割引券利用時の価格です。</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="md:flex md:items-start md:justify-between md:w-o-1000 md:mx-auto md:pb-o-60 pt-o-80 md:pt-o-100">
+                        <div class="w-o-591 mx-auto md:w-o-500 md:mx-0">
+                            <div class="mb-o-28">
+                                <p class="text-32 md:text-28 font-bold">従来の葬儀を小規模で</p>
+                                <p class="text-51 md:text-45 font-bold">家族葬プラン</p>
+                            </div>
+                            <img src="./images/sec04_price03.png" alt="会員価格400,000円〜" class="w-full block mb-o-20">
+                            <div>
+                                <p class="hidden md:block text-22 font-medium font-NotoSansJP leading-[2]">従来の葬儀を小規模で行うプランです。低価格ながら、故人様にしっかり寄り添い、ゆっくりと最期の時間を過ごすことができるプランです。</p>
+                            </div>
+                        </div>
+                        <div class="md:w-o-457">
+                            <img src="./images/sec04_img03.jpg" alt="葬儀のイメージ画像" class="w-full block">
+                            <img src="./images/sec04_flow03.png" alt="葬儀の流れ" class="block w-o-615 mx-auto md:mx-0 -mt-o-80 md:mt-o-40 md:w-full"> 
+                        </div>
+                    </div>
+                    <div class="md:hidden text-28 md:text-22 font-medium font-NotoSansJP w-o-615 mx-auto mt-o-40 leading-o-18 pb-o-40 md:pb-0">
+                        <p>従来の葬儀を小規模で行うプランです。低価格ながら、故人様にしっかり寄り添い、ゆっくりと最期の時間を過ごすことができるプランです。</p>
+                    </div>
+                    <div class="bg-[url(../images/sec04_checkBg.jpg)] md:bg-[url(../images/sec04_checkBg_pc.jpg)] bg-cover py-o-32">
+                        <img src="./images/sec04_checkTitle.png" alt="こんな方におすすめ" class="w-o-420 mx-auto md:w-o-360">
+                        <ul class="w-o-688 md:w-o-768 mx-auto bg-white border-gold border-double border-[4px] md:border-[6px] px-o-40 pt-o-48 pb-o-32 -mt-o-32">
+                            <li>
+                                <div class="flex items-center gap-o-12">
+                                    <span class="block w-o-28 h-o-28 rounded-[0.04rem] border-[0.02rem] border-[#898989] relative before:content-[''] before:absolute before:border-b-[0.08rem] before:border-l-[0.08rem] before:-rotate-45 before:border-blue before:w-o-30 before:h-o-15"></span><p class="text-28 md:text-22 font-medium font-NotoSansJP">費用は抑えたいが、葬儀の流れは崩したくない</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center gap-o-12 mt-o-24">
+                                    <span class="block w-o-28 h-o-28 rounded-[0.04rem] border-[0.02rem] border-[#898989] relative before:content-[''] before:absolute before:border-b-[0.08rem] before:border-l-[0.08rem] before:-rotate-45 before:border-blue before:w-o-30 before:h-o-15"></span><p class="text-28 md:text-22 font-medium font-NotoSansJP">一般葬を希望していたが、時節柄、身内・親族だけで送ることにした</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="w-o-688 mx-auto md:w-o-768">
+                            <p class="text-21 font-medium mt-o-16">※1 無料の会員登録、資料請求後、割引券利用時の価格です。</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <!-- sec05 -->
+        <section class="pt-o-80 pb-o-100 bg-[url(../images/sec05_bg.png)] bg-cover bg-no-repeat md:bg-[url(../images/sec05_bg_pc.png)] ">
+            <h2 class="text-center mb-o-52">
+                <span class="block font-medium text-30 md:text-28">大切な最期の時間を過ごしていただくために</span>
+                <span class="block font-bold text-40">ご遺族様に納棺の儀の</span>
+                <spna class="block font-bold text-40">お手伝いをしていただいています</spna>
+            </h2>
+            <img src="./images/sec05_img.jpg" alt="花を添える写真" class="w-o-768 mx-auto mb-o-40 md:mb-o-48">
+            <div class="w-o-688 md:w-o-768 mx-auto">
+                <p class="text-30 md:text-22 font-medium leading-[2]">納棺の儀とは、ご遺体を清めてお棺にお納め、故人様があの世へと安心して旅立てるよう支度を整える儀式です。生前好きだったお酒を口元に含ませたり、安らかなお顔で眠っていただくための死に化粧のお手伝いを行っていただくなど。ありがとうの気持ちを込めて、かけがえのない最期の時間をお過ごしください。</p>
+            </div>
+        </section>
+        <!-- cta -->
+        <section>
+            <div class=" bg-[url(../images/keyv_bg.jpg)] md:bg-[url(../images/keyv_bg_pc.jpg)] border-t-gold border-double border-t-[0.06rem]">
+                <div class="pt-o-24 pb-o-424 md:pt-o-56 md:pb-o-80 relative md:w-o-1000 md:mx-auto">
+                    <img src="./images/keyv_img01.png" alt="家族葬のらくおうグループ" class="block w-o-550 mx-auto md:ml-0 mb-o-24">
+                    <div class="text-center text-30 md:text-28 md:text-left font-bold tracking-o-100 leading-relaxed relative w-o-550 md:w-auto mx-auto mb-o-24 md:absolute right-0 md:[writing-mode:vertical-rl] z-10">
+                        <span class="block w-o-26 md:w-o-15 absolute left-0 md:left-o-3 md:top-o-262 md:rotate-[270deg]"><img src="./images/keyv_leftFlame.png" alt=""></span>
+                        <p class="md:bg-[#FCFAEE] md:pt-o-20">もっと無理なく見送りませんか？</p>
+                        <p class="md:bg-[#FCFAEE] md:mr-o-12 md:h-o-280 md:py-o-20">家族なんだから</p>
+                        <span class="block w-o-26 md:w-o-15 absolute right-0 bottom-0 md:bottom-auto md:-top-o-4 md:rotate-[270deg] md:right-o-4"><img src="./images/keyv_rigntFlame.png" alt=""></span>
+                    </div>
+                    <h2 class="text-center text-gold font-bold leading-snug mb-o-28 md:text-left md:relative md:z-10">
+                        <span class="text-40 block">三田市の葬儀なら</span>
+                        <span class="text-69 block">家族葬のルミーナ</span>
+                    </h2>
+                    <div class="w-o-550 mx-auto md:ml-0 md:relative md:z-10">
+                        <img src="./images/keyv_price.png" alt="地域密着のやさしい価格 130,000円〜" class="w-full block">
+                    </div>
+                    <img src="./images/keyv_flower.png" alt="" class=" absolute -left-[.72rem] bottom-0 w-o-695 md:w-o-830 md:left-auto md:-right-o-96 md:-bottom-o-110">
+                    <img src="./images/keyv_woman.png" alt="" class=" absolute -right-[.24rem] bottom-0 w-o-268 md:w-o-303 md:right-o-80">  
+                </div>
+                <div class="bg-gold relative md:mt-0">
+                    <div class="py-o-20 relative">
+                        <div class="flex items-center justify-between w-o-690 mx-auto mb-o-28">
+                            <img src="./images/keyv_medal01.png" alt="TV CM放送中" class="block w-o-148">
+                            <img src="./images/keyv_medal02.png" alt="全国葬儀件数  第1位 獲得" class="block w-o-250">
+                            <img src="./images/keyv_medal03.png" alt="ご依頼件数 17000件" class="block w-o-250">
+                        </div>
+                        <span class="block w-full h-o-1 bg-white my-o-20"></span>
+                        <p class="text-36 font-bold text-center text-white">まずはお気軽にご相談ください</p>
+                    </div>
+                </div>
+                <div class="md:flex md:items-center md:justify-between md:w-o-1000 md:mx-auto pt-o-48"> 
+                    <a class="block w-o-620 mx-auto order-2" href="tel:0120-637-024">
+                        <picture class="block">
+                            <source srcset="./images/cta_btn01_pc.png" media="(min-width: 768px)"/>
+                            <img src="./images/cta_btn01.png" alt="0120-637-024 通話無料：24時間365日" class="block mx-auto w-full md:w-o-480">
+                        </picture>
+                    </a>
+                    <a class="block w-o-620 mx-auto order-1" href="https://www.sousin.info/contact/" target="_blank">
+                        <picture class="block">
+                            <source srcset="./images/cta_btn02_pc.png" media="(min-width: 768px)"/>
+                            <img src="./images/cta_btn02.png" alt="問い合わせ・資料請求する 相談やお見積請求も無料で承ります" class="block mx-auto w-full md:w-o-480">
+                        </picture>
+                    </a>
+                </div>
+                <img src="./images/keyv_box.png" alt="今なら事前にご連絡いただいた方限定　最大10万円の割引券贈呈" class="w-o-740 md:w-o-828 m-auto">
+                <div class="w-o-688 mx-auto pb-o-60 md:w-o-768">
+                    <p class="text-17 font-medium md:text-16">※1 無料の会員登録、資料請求後、割引券利用時の価格です。</p>
+                    <p class="text-17 font-medium mt-o-8 md:text-16">※2 グループ会社実績。TPCマーケティングリサーチ㈱調べ争議件数（葬儀専門会社部門にてFCを除く2021年度）（葬儀専門会社とは葬儀のみを事業として扱い、自社で葬儀施工まで行う会社のこと）</p>
+                </div>
+            </div>
+        </section>
+        <!-- sec06 -->
+        <section class="pt-o-100 pb-o-48">
+            <h2><img src="./images/sec06_title.png" alt="ルミーナが三田市の皆さまに選ばれる3つの理由" class="w-o-671 mx-auto md:w-o-600"></h2>
+            <div class="w-o-615 mx-auto py-o-48 md:py-o-120 md:w-o-1000">
+                <ul>
+                    <li>
+                        <div class=" relative md:flex md:justify-between">
+                            <img src="./images/sec06_icon01.png" alt="POINT01" class=" absolute top-o-74 -right-o-32 w-o-148 md:right-auto md:-left-o-72 md:-top-o-74">
+                            <div class="md:order-2 md:w-o-500">
+                                <h3 class="text-37 md:text-32 font-bold pl-o-20 border-l-[0.14rem] border-blue mb-o-28">
+                                    <span class="block">365日24時間 専任スタッフが</span>
+                                    <span class="block">いつでも迅速に対応</span>
+                                </h3>
+                                <p class="hidden md:block md:text-22 md:leading-[1.8] md:font-NotoSansJP">深夜早朝や土日祝も、専任スタッフがいつでもご対応いたします。緊急時やご依頼時はもちろん、ご不明な点や気になること、不安なことがあれば是非お気軽にご連絡ください。</p>
+                            </div>
+                            <img src="./images/sec06_img01.jpg" alt="サポート体制のイメージ画像" class="mb-o-32 w-full md:w-o-457 md:order-1">
+                            <div class="text-28 font-medium leading-[1.8] font-NotoSansJP md:hidden">
+                                <p>深夜早朝や土日祝も、専任スタッフがいつでもご対応いたします。緊急時やご依頼時はもちろん、ご不明な点や気になること、不安なことがあれば是非お気軽にご連絡ください。</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class=" relative md:flex md:justify-between mt-o-80 md:mt-o-120">
+                            <img src="./images/sec06_icon02.png" alt="POINT02" class=" absolute top-o-74 -right-o-32 w-o-148 md:right-auto md:-left-o-72 md:-top-o-74">
+                            <div class="md:order-2 md:w-o-500">
+                                <h3 class="text-37 md:text-32 font-bold pl-o-20 border-l-[0.14rem] border-blue mb-o-28">
+                                    <span class="block">やさしい価格と</span>
+                                    <span class="block">サービス品質の両立</span>
+                                </h3>
+                                <p class="hidden md:block md:text-22 md:leading-[1.8] md:font-NotoSansJP">ルミーナは葬儀場を複数運営しているため、低価格でも質の良い葬儀を執り行うことができます。また、地域の風習やしきたりに合わせた葬儀を執り行うことも、地域密着の葬儀社ならではです。</p>
+                            </div>
+                            <img src="./images/sec06_img02.jpg" alt="サポート体制のイメージ画像" class="mb-o-32 w-full md:w-o-457 md:order-1">
+                            <div class="text-28 font-medium leading-[1.8] font-NotoSansJP md:hidden">
+                                <p>ルミーナは葬儀場を複数運営しているため、低価格でも質の良い葬儀を執り行うことができます。また、地域の風習やしきたりに合わせた葬儀を執り行うことも、地域密着の葬儀社ならではです。</p>
+                            </div>
+                        </div>
+                    </li>      
+                    <li>
+                        <div class=" relative md:flex md:justify-between mt-o-80 md:mt-o-120">
+                            <img src="./images/sec06_icon03.png" alt="POINT02" class=" absolute top-o-74 -right-o-32 w-o-148 md:right-auto md:-left-o-72 md:-top-o-74">
+                            <div class="md:order-2 md:w-o-500">
+                                <h3 class="text-37 md:text-32 font-bold pl-o-20 border-l-[0.14rem] border-blue mb-o-28">
+                                    <span class="block">役所での手続きからご供養まで</span>
+                                    <span class="block">葬儀前後も無料でサポート</span>
+                                </h3>
+                                <p class="hidden md:block md:text-22 md:leading-[1.8] md:font-NotoSansJP">火葬場・式場の予約、役所での手続きなど、葬儀前の手続きはもちろん、葬儀後の手続きやご供養まで無料でサポートいたします。安心して故人様との最期のひとときをお過ごしください。</p>
+                            </div>
+                            <img src="./images/sec06_img03.jpg" alt="サポート体制のイメージ画像" class="mb-o-32 w-full md:w-o-457 md:order-1">
+                            <div class="text-28 font-medium leading-[1.8] font-NotoSansJP md:hidden">
+                                <p>火葬場・式場の予約、役所での手続きなど、葬儀前の手続きはもちろん、葬儀後の手続きやご供養まで無料でサポートいたします。安心して故人様との最期のひとときをお過ごしください。</p>
+                            </div>
+                        </div>
+                    </li>   
+                </ul>
+            </div>
+        </section>
+        <!-- cta -->
+        <section>
+            <div class=" bg-[url(../images/keyv_bg.jpg)] md:bg-[url(../images/keyv_bg_pc.jpg)] border-t-gold border-double border-t-[0.06rem]">
+                <div class="pt-o-24 pb-o-424 md:pt-o-56 md:pb-o-80 relative md:w-o-1000 md:mx-auto">
+                    <img src="./images/keyv_img01.png" alt="家族葬のらくおうグループ" class="block w-o-550 mx-auto md:ml-0 mb-o-24">
+                    <div class="text-center text-30 md:text-28 md:text-left font-bold tracking-o-100 leading-relaxed relative w-o-550 md:w-auto mx-auto mb-o-24 md:absolute right-0 md:[writing-mode:vertical-rl] z-10">
+                        <span class="block w-o-26 md:w-o-15 absolute left-0 md:left-o-3 md:top-o-262 md:rotate-[270deg]"><img src="./images/keyv_leftFlame.png" alt=""></span>
+                        <p class="md:bg-[#FCFAEE] md:pt-o-20">もっと無理なく見送りませんか？</p>
+                        <p class="md:bg-[#FCFAEE] md:mr-o-12 md:h-o-280 md:py-o-20">家族なんだから</p>
+                        <span class="block w-o-26 md:w-o-15 absolute right-0 bottom-0 md:bottom-auto md:-top-o-4 md:rotate-[270deg] md:right-o-4"><img src="./images/keyv_rigntFlame.png" alt=""></span>
+                    </div>
+                    <h2 class="text-center text-gold font-bold leading-snug mb-o-28 md:text-left md:relative md:z-10">
+                        <span class="text-40 block">三田市の葬儀なら</span>
+                        <span class="text-69 block">家族葬のルミーナ</span>
+                    </h2>
+                    <div class="w-o-550 mx-auto md:ml-0 md:relative md:z-10">
+                        <img src="./images/keyv_price.png" alt="地域密着のやさしい価格 130,000円〜" class="w-full block">
+                    </div>
+                    <img src="./images/keyv_flower.png" alt="" class=" absolute -left-[.72rem] bottom-0 w-o-695 md:w-o-830 md:left-auto md:-right-o-96 md:-bottom-o-110">
+                    <img src="./images/keyv_woman.png" alt="" class=" absolute -right-[.24rem] bottom-0 w-o-268 md:w-o-303 md:right-o-80">  
+                </div>
+                <div class="bg-gold relative md:mt-0">
+                    <div class="py-o-20 relative">
+                        <div class="flex items-center justify-between w-o-690 mx-auto mb-o-28">
+                            <img src="./images/keyv_medal01.png" alt="TV CM放送中" class="block w-o-148">
+                            <img src="./images/keyv_medal02.png" alt="全国葬儀件数  第1位 獲得" class="block w-o-250">
+                            <img src="./images/keyv_medal03.png" alt="ご依頼件数 17000件" class="block w-o-250">
+                        </div>
+                        <span class="block w-full h-o-1 bg-white my-o-20"></span>
+                        <p class="text-36 font-bold text-center text-white">まずはお気軽にご相談ください</p>
+                    </div>
+                </div>
+                <div class="md:flex md:items-center md:justify-between md:w-o-1000 md:mx-auto pt-o-48"> 
+                    <a class="block w-o-620 mx-auto order-2" href="tel:0120-637-024">
+                        <picture class="block">
+                            <source srcset="./images/cta_btn01_pc.png" media="(min-width: 768px)"/>
+                            <img src="./images/cta_btn01.png" alt="0120-637-024 通話無料：24時間365日" class="block mx-auto w-full md:w-o-480">
+                        </picture>
+                    </a>
+                    <a class="block w-o-620 mx-auto order-1" href="https://www.sousin.info/contact/" target="_blank">
+                        <picture class="block">
+                            <source srcset="./images/cta_btn02_pc.png" media="(min-width: 768px)"/>
+                            <img src="./images/cta_btn02.png" alt="0120-637-024 通話無料：24時間365日" class="block mx-auto w-full md:w-o-480">
+                        </picture>
+                    </a>
+                </div>
+                <img src="./images/keyv_box.png" alt="今なら事前にご連絡いただいた方限定　最大10万円の割引券贈呈" class="w-o-740 md:w-o-828 m-auto">
+                <div class="w-o-688 mx-auto pb-o-60 md:w-o-768">
+                    <p class="text-17 font-medium md:text-16">※1 無料の会員登録、資料請求後、割引券利用時の価格です。</p>
+                    <p class="text-17 font-medium mt-o-8 md:text-16">※2 グループ会社実績。TPCマーケティングリサーチ㈱調べ争議件数（葬儀専門会社部門にてFCを除く2021年度）（葬儀専門会社とは葬儀のみを事業として扱い、自社で葬儀施工まで行う会社のこと）</p>
+                </div>
+            </div>
+        </section>
+        <!-- sec07 -->
+        <section class="pt-o-80 md:pt-o-100">
+            <h2 class=" font-bold text-center text-40">
+                <span class="block">葬祭ディレクターが</span>
+                <span class="block">親身になってサポートいたします</span>
+            </h2>
+            <img src="./images/line.png" alt="線の画像" class="w-o-104 mx-auto my-o-32">
+            <div class="flex items-center justify-center gap-o-24 bg-white relative z-10 w-o-420 mx-auto">
+                <span class="text-60 font-bold text-gold">Q</span>
+                <h3 class="text-28 text-center font-medium font-NotoSansJP">
+                    <span class="block">厚生労働省認定</span>
+                    <span class="block">葬祭ディレクターとは</span>
+                </h3>
+            </div>
+            <div class="w-o-688 md:w-o-1000 mx-auto bg-white border-gold border-double border-[4px] md:border-[6px] px-o-40 pt-o-48 pb-o-32 -mt-o-32">
+                <p class="text-28 font-medium md:text-22 leading-[2]">葬祭ディレクターとは、厚生労働省に認定されている葬儀のプロフェッショナルです。相談から葬儀の進行、精神的なサポートまで、葬儀に関する豊富な知識と経験を兼ね揃えています。まごころを込めて、故人様とご遺族様の最期のお別れをお手伝いさせていただきます。</p>
+            </div>
+            <!-- sp -->
+            <div class="md:hidden mt-o-112">
+                <div class=" relative">
+                    <img src="./images/sec07_img01.jpg" alt="女性の画像" class="w-o-330 absolute left-0 -top-o-48 z-10">
+                    <div class="bg-[url(../images/keyv_bg.jpg)] md:bg-[url(../images/keyv_bg_pc.jpg)] relative w-o-688 mx-auto pt-o-92 pb-o-44">
+                        <div class="absolute left-o-252 -top-o-28 z-10">
+                            <span class="block w-o-209 bg-gold text-white text-30 font-bold mb-o-8 py-o-4 text-center">最期の時間を</span>
+                            <span class="block w-o-364 bg-gold text-white text-30 font-bold py-o-4 text-center">温かい時間にしてほしい</span>
+                        </div>
+                        <div class="w-o-390 ml-auto relative z-10">
+                            <div class="ml-o-88 mt-o-28">
+                                <div class="text-24 font-medium font-NotoSansJP">
+                                    <p>厚生労働省認定</p>
+                                    <p>1級葬祭ディレクター</p>
+                                </div>
+                                <div class="text-45 font-bold">
+                                    <p>堀 小羊江</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" font-NotoSansJP text-28 font-medium mt-o-24 w-o-615 mx-auto leading-o-18">
+                            <p>私たち葬祭ディレクターの役目は、亡くなった方のご意向を尊重しつつ、ご遺族の悲しみに寄り添い、最適な葬儀を執り行うことです。</p>
+                            <p class="mt-o-64">大切な方との最期の限られた時間に安心してお別れしていただけるよう、まごころを込めてサポートさせていただきます。ご遺族様にとっても、また亡くなられた故人様にとっても、葬儀が温かいお別れの時間となるようお手伝いをさせていただいています。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=" relative">
+                    <img src="./images/sec07_img02.jpg" alt="男性の画像" class="w-o-330 absolute right-0 -top-o-48 z-10">
+                    <div class="bg-[url(../images/keyv_bg.jpg)] md:bg-[url(../images/keyv_bg_pc.jpg)] relative w-o-688 mx-auto pt-o-92 pb-o-44 mt-o-80">
+                        <div class="absolute right-o-260 -top-o-28 z-10">
+                            <span class="block w-o-391 bg-gold text-white text-30 font-bold mb-o-8 py-o-4 text-center">葬儀は残されたご遺族様の</span>
+                            <span class="block w-o-335 bg-gold text-white text-30 font-bold py-o-4 text-center">悲しみを和らげる儀式</span>
+                        </div>
+                        <div class="w-o-390 mr-auto relative z-10">
+                            <div class="ml-o-88 mt-o-28">
+                                <div class="text-24 font-medium font-NotoSansJP">
+                                    <p>厚生労働省認定</p>
+                                    <p>1級葬祭ディレクター</p>
+                                </div>
+                                <div class="text-45 font-bold">
+                                    <p>奥川 学</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" font-NotoSansJP text-28 font-medium mt-o-24 w-o-615 mx-auto leading-o-18">
+                            <p>葬儀は大切なご家族様とのお別れの儀式、そして残されたご遺族様の悲しみを和らげる儀式だと思っております。故人様との思い出を心の中で繋ぎ止めていただき、お別れをしていただきたいと思っております。</p>
+                            <p class="mt-o-64">私自身、両親を亡くしており、色々してあげたかったと後悔した過去があります。ご遺族様には同じ思いをしないよう、ご提案させていただいています。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<body>
-    <p class="font-bold text-green text-39">サーバテスト</p>
+
+            <!-- pc -->
+            <div class="hidden md:flex md:justify-between md:w-o-1000 md:mx-auto md:items-start md:mt-o-160">
+                <div class="md:w-o-480">
+                    <div class="md:flex gap-o-24 md:items-end">
+                        <img src="./images/sec07_img01.jpg" alt="女性の画像" class="md:w-o-215">
+                        <div class="">
+                            <div class=" font-NotoSansJP font-medium text-20">
+                                <p>厚生労働省認定</p>
+                                <p>1級葬祭ディレクター</p>
+                            </div>
+                            <p class="text-37 font-bold">堀 小羊江</p>
+                        </div>
+                    </div>
+                    <div class=" relative mt-o-68">
+                        <div class="text-30 font-bold absolute -top-o-32 left-o-32 text-white">
+                            <p class="bg-gold w-o-210 text-center py-o-4">最期の時間を</p>
+                            <p class="bg-gold w-o-360 text-center py-o-4 mt-o-8">温かい時間にしてほしい</p>
+                        </div>
+                        <div class="md:bg-[url(../images/keyv_bg_pc.jpg)] pt-o-120 md:h-o-648">
+                            <div class="w-o-400 mx-auto text-22 font-medium leading-o-18">
+                                <p>私たち葬祭ディレクターの役目は、亡くなった方のご意向を尊重しつつ、ご遺族の悲しみに寄り添い、最適な葬儀を執り行うことです。</p>
+                                <p class="mt-o-40">大切な方との最期の限られた時間に安心してお別れしていただけるよう、まごころを込めてサポートさせていただきます。ご遺族様にとっても、また亡くなられた故人様にとっても、葬儀が温かいお別れの時間となるようお手伝いをさせていただいています。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-o-480">
+                    <div class="md:flex gap-o-24 md:items-end">
+                        <img src="./images/sec07_img02.jpg" alt="男性の画像" class="md:w-o-215">
+                        <div class="">
+                            <div class=" font-NotoSansJP font-medium text-20">
+                                <p>厚生労働省認定</p>
+                                <p>1級葬祭ディレクター</p>
+                            </div>
+                            <p class="text-37 font-bold">奥川 学</p>
+                        </div>
+                    </div>
+                    <div class=" relative mt-o-68">
+                        <div class="text-30 font-bold absolute -top-o-32 left-o-32 text-white">
+                            <p class="bg-gold w-o-391 text-center py-o-4">葬儀は残されたご遺族様の</p>
+                            <p class="bg-gold w-o-332 text-center py-o-4 mt-o-8">悲しみを和らげる儀式</p>
+                        </div>
+                        <div class="md:bg-[url(../images/keyv_bg_pc.jpg)] pt-o-120 md:h-o-648">
+                            <div class="w-o-400 mx-auto text-22 font-medium leading-o-18">
+                                <p>葬儀は大切なご家族様とのお別れの儀式、そして残されたご遺族様の悲しみを和らげる儀式だと思っております。故人様との思い出を心の中で繋ぎ止めていただき、お別れをしていただきたいと思っております。</p>
+                                <p class="mt-o-40">私自身、両親を亡くしており、色々してあげたかったと後悔した過去があります。ご遺族様には同じ思いをしないよう、ご提案させていただいています。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- sec08 -->
+        <section class="py-o-80 md:py-o-120">
+            <h2 class="text-40 font-bold text-center">ご依頼から葬儀までの流れ</h2>
+            <img src="./images/line.png" alt="線の画像" class="w-o-104 mx-auto my-o-32">
+            <ul class="mt-o-60">
+                <li class="relative md:w-o-1000 md:mx-auto">
+                    <div class="border-4 md:border-[6px] border-blue border-double w-o-689 md:w-full mx-auto py-o-32">
+                        <div class="w-o-615 mx-auto  md:w-o-926">
+                            <div class="md:flex items-start md:items-start gap-o-32">
+                                <img src="./images/sec08_img01.jpg" alt="葬儀のイメージ画像" class="w-full md:w-o-353">
+                                <div class="text-28 md:text-22 font-medium font-NotoSansJP mt-o-52 md:mt-0 leading-o-18">
+                                    <p>まずはルミーナにお電話ください。<br class="hidden md:block">すぐにお迎えにあがります。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-37 md:text-25 font-medium bg-gold py-o-32 md:py-o-8 px-o-40 md:px-o-12 inline-block text-white absolute left-0 top-o-260 md:-top-o-16 md:-left-o-10">ご危篤・逝去</p>
+                    <picture class="block">
+                        <source srcset="./images/sec08_arrow_pc.png" media="(min-width: 768px)"/>
+                        <img src="./images/sec08_arrow.png" alt="矢印の画像" class="w-o-100 md:w-o-78 mx-auto -mt-o-40 md:-mt-o-20">
+                    </picture>
+                </li>
+                <li class="relative md:w-o-1000 md:mx-auto -mt-o-40 md:-mt-o-16">
+                    <div class="border-4 md:border-[6px] border-blue border-double w-o-689 md:w-full mx-auto py-o-32">
+                        <div class="w-o-615 mx-auto  md:w-o-926">
+                            <div class="md:flex items-start md:items-start gap-o-32">
+                                <img src="./images/sec08_img02.jpg" alt="葬儀のイメージ画像" class="w-full md:w-o-353">
+                                <div class="text-28 md:text-22 font-medium font-NotoSansJP mt-o-52 md:mt-0 leading-o-18">
+                                    <p>ご遺族様のもとに、お迎えにあがります。その後、お身体の状態を安定に保つための処置を行います。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-37 md:text-25 font-medium bg-gold py-o-32 md:py-o-8 px-o-40 md:px-o-12 inline-block text-white absolute left-0 top-o-260 md:-top-o-16 md:-left-o-10">お迎え・ご安置</p>
+                    <picture class="block">
+                        <source srcset="./images/sec08_arrow_pc.png" media="(min-width: 768px)"/>
+                        <img src="./images/sec08_arrow.png" alt="矢印の画像" class="w-o-100 md:w-o-78 mx-auto -mt-o-40 md:-mt-o-20">
+                    </picture>
+                </li>
+                <li class="relative md:w-o-1000 md:mx-auto -mt-o-40 md:-mt-o-16">
+                    <div class="border-4 md:border-[6px] border-blue border-double w-o-689 md:w-full mx-auto py-o-32">
+                        <div class="w-o-615 mx-auto  md:w-o-926">
+                            <div class="md:flex items-start md:items-start gap-o-32">
+                                <img src="./images/sec08_img03.jpg" alt="葬儀のイメージ画像" class="w-full md:w-o-353">
+                                <div class="text-28 md:text-22 font-medium font-NotoSansJP mt-o-52 md:mt-0 leading-o-18">
+                                    <p>ご安置後、ご遺族様の負担にならない時間で、専門スタッフがご葬儀のお打合せをさせていただきます。 日程や場所、費用などのお打合せを行い、葬儀の内容を決定していきます。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-37 md:text-25 font-medium bg-gold py-o-32 md:py-o-8 px-o-40 md:px-o-12 inline-block text-white absolute left-0 top-o-260 md:-top-o-16 md:-left-o-10">ご準備・お打ち合わせ</p>
+                    <picture class="block">
+                        <source srcset="./images/sec08_arrow_pc.png" media="(min-width: 768px)"/>
+                        <img src="./images/sec08_arrow.png" alt="矢印の画像" class="w-o-100 md:w-o-78 mx-auto -mt-o-40 md:-mt-o-20">
+                    </picture>
+                </li>
+                <li class="relative md:w-o-1000 md:mx-auto -mt-o-40 md:-mt-o-16">
+                    <div class="border-4 md:border-[6px] border-blue border-double w-o-689 md:w-full mx-auto py-o-32">
+                        <div class="w-o-615 mx-auto  md:w-o-926">
+                            <div class="md:flex items-start md:items-start gap-o-32">
+                                <img src="./images/sec08_img04.jpg" alt="葬儀のイメージ画像" class="w-full md:w-o-353">
+                                <div class="text-28 md:text-22 font-medium font-NotoSansJP mt-o-52 md:mt-0 leading-o-18">
+                                    <p>ご希望のスタイルでお通夜・告別式を進行いたします。当日の状況や天候などに合わせ、タイムスケジュールやお料理の数など、柔軟に調整いたします。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-37 md:text-25 font-medium bg-gold py-o-32 md:py-o-8 px-o-40 md:px-o-12 inline-block text-white absolute left-0 top-o-260 md:-top-o-16 md:-left-o-10">お通夜・告別式</p>
+                    <picture class="block">
+                        <source srcset="./images/sec08_arrow_pc.png" media="(min-width: 768px)"/>
+                        <img src="./images/sec08_arrow.png" alt="矢印の画像" class="w-o-100 md:w-o-78 mx-auto -mt-o-40 md:-mt-o-20">
+                    </picture>
+                </li>
+                <li class="relative md:w-o-1000 md:mx-auto -mt-o-40 md:-mt-o-16">
+                    <div class="border-4 md:border-[6px] border-blue border-double w-o-689 md:w-full mx-auto py-o-32">
+                        <div class="w-o-615 mx-auto  md:w-o-926">
+                            <div class="md:flex items-start md:items-start gap-o-32">
+                                <img src="./images/sec08_img05.jpg" alt="葬儀のイメージ画像" class="w-full md:w-o-353">
+                                <div class="text-28 md:text-22 font-medium font-NotoSansJP mt-o-52 md:mt-0 leading-o-18">
+                                    <p>火葬場にて、ご火葬・骨上げ後、埋葬許可書を受け取ります。その後、葬儀の当日に、初七日法要を執り行います。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-37 md:text-25 font-medium bg-gold py-o-32 md:py-o-8 px-o-40 md:px-o-12 inline-block text-white absolute left-0 top-o-260 md:-top-o-16 md:-left-o-10">ご火葬・収骨</p>
+                    <picture class="block">
+                        <source srcset="./images/sec08_arrow_pc.png" media="(min-width: 768px)"/>
+                        <img src="./images/sec08_arrow.png" alt="矢印の画像" class="w-o-100 md:w-o-78 mx-auto -mt-o-40 md:-mt-o-20">
+                    </picture>
+                </li>
+                <li class="relative md:w-o-1000 md:mx-auto -mt-o-40 md:-mt-o-16">
+                    <div class="border-4 md:border-[6px] border-blue border-double w-o-689 md:w-full mx-auto py-o-32">
+                        <div class="w-o-615 mx-auto  md:w-o-926">
+                            <div class="md:flex items-start md:items-start gap-o-32">
+                                <img src="./images/sec08_img06.jpg" alt="葬儀のイメージ画像" class="w-full md:w-o-353">
+                                <div class="text-28 md:text-22 font-medium font-NotoSansJP mt-o-52 md:mt-0 leading-o-18">
+                                    <p>ご納骨は、四十九日の法要後に行います。葬儀後の各種お手続きも無料でサポートいたします。ご不明な点も含めてお気軽にご相談ください。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-37 md:text-25 font-medium bg-gold py-o-32 md:py-o-8 px-o-40 md:px-o-12 inline-block text-white absolute left-0 top-o-260 md:-top-o-16 md:-left-o-10">サポート・ご供養</p>
+                </li>
+            </ul>
+        </section>
+        <!-- cta -->
+        <section>
+            <div class=" bg-[url(../images/keyv_bg.jpg)] md:bg-[url(../images/keyv_bg_pc.jpg)] border-t-gold border-double border-t-[0.06rem]">
+                <div class="pt-o-24 pb-o-424 md:pt-o-56 md:pb-o-80 relative md:w-o-1000 md:mx-auto">
+                    <img src="./images/keyv_img01.png" alt="家族葬のらくおうグループ" class="block w-o-550 mx-auto md:ml-0 mb-o-24">
+                    <div class="text-center text-30 md:text-28 md:text-left font-bold tracking-o-100 leading-relaxed relative w-o-550 md:w-auto mx-auto mb-o-24 md:absolute right-0 md:[writing-mode:vertical-rl] z-10">
+                        <span class="block w-o-26 md:w-o-15 absolute left-0 md:left-o-3 md:top-o-262 md:rotate-[270deg]"><img src="./images/keyv_leftFlame.png" alt=""></span>
+                        <p class="md:bg-[#FCFAEE] md:pt-o-20">もっと無理なく見送りませんか？</p>
+                        <p class="md:bg-[#FCFAEE] md:mr-o-12 md:h-o-280 md:py-o-20">家族なんだから</p>
+                        <span class="block w-o-26 md:w-o-15 absolute right-0 bottom-0 md:bottom-auto md:-top-o-4 md:rotate-[270deg] md:right-o-4"><img src="./images/keyv_rigntFlame.png" alt=""></span>
+                    </div>
+                    <h2 class="text-center text-gold font-bold leading-snug mb-o-28 md:text-left md:relative md:z-10">
+                        <span class="text-40 block">三田市の葬儀なら</span>
+                        <span class="text-69 block">家族葬のルミーナ</span>
+                    </h2>
+                    <div class="w-o-550 mx-auto md:ml-0 md:relative md:z-10">
+                        <img src="./images/keyv_price.png" alt="地域密着のやさしい価格 130,000円〜" class="w-full block">
+                    </div>
+                    <img src="./images/keyv_flower.png" alt="" class=" absolute -left-[.72rem] bottom-0 w-o-695 md:w-o-830 md:left-auto md:-right-o-96 md:-bottom-o-110">
+                    <img src="./images/keyv_woman.png" alt="" class=" absolute -right-[.24rem] bottom-0 w-o-268 md:w-o-303 md:right-o-80">  
+                </div>
+                <div class="bg-gold relative md:mt-0">
+                    <div class="py-o-20 relative">
+                        <div class="flex items-center justify-between w-o-690 mx-auto mb-o-28">
+                            <img src="./images/keyv_medal01.png" alt="TV CM放送中" class="block w-o-148">
+                            <img src="./images/keyv_medal02.png" alt="全国葬儀件数  第1位 獲得" class="block w-o-250">
+                            <img src="./images/keyv_medal03.png" alt="ご依頼件数 17000件" class="block w-o-250">
+                        </div>
+                        <span class="block w-full h-o-1 bg-white my-o-20"></span>
+                        <p class="text-36 font-bold text-center text-white">まずはお気軽にご相談ください</p>
+                    </div>
+                </div>
+                <div class="md:flex md:items-center md:justify-between md:w-o-1000 md:mx-auto pt-o-48"> 
+                    <a class="block w-o-620 mx-auto order-2" href="tel:0120-637-024">
+                        <picture class="block">
+                            <source srcset="./images/cta_btn01_pc.png" media="(min-width: 768px)"/>
+                            <img src="./images/cta_btn01.png" alt="0120-637-024 通話無料：24時間365日" class="block mx-auto w-full md:w-o-480">
+                        </picture>
+                    </a>
+                    <a class="block w-o-620 mx-auto order-1" href="https://www.sousin.info/contact/" target="_blank">
+                        <picture class="block">
+                            <source srcset="./images/cta_btn02_pc.png" media="(min-width: 768px)"/>
+                            <img src="./images/cta_btn02.png" alt="0120-637-024 通話無料：24時間365日" class="block mx-auto w-full md:w-o-480">
+                        </picture>
+                    </a>
+                </div>
+                <img src="./images/keyv_box.png" alt="今なら事前にご連絡いただいた方限定　最大10万円の割引券贈呈" class="w-o-740 md:w-o-828 m-auto">
+                <div class="w-o-688 mx-auto pb-o-60 md:w-o-768">
+                    <p class="text-17 font-medium md:text-16">※1 無料の会員登録、資料請求後、割引券利用時の価格です。</p>
+                    <p class="text-17 font-medium mt-o-8 md:text-16">※2 グループ会社実績。TPCマーケティングリサーチ㈱調べ争議件数（葬儀専門会社部門にてFCを除く2021年度）（葬儀専門会社とは葬儀のみを事業として扱い、自社で葬儀施工まで行う会社のこと）</p>
+                </div>
+            </div>
+        </section>
+        <!-- sec09 -->
+        <section class=" bg-[url(../images/sec09_bg.png)] md:bg-[url(../images/sec09_bg_pc.png)] bg-[length:100%_auto] bg-top bg-no-repeat  pt-o-80 md:pt-o-120">
+            <h2 class=" font-bold text-40 text-center">
+                <span class="block">旅逝く人との最期の時間</span>
+                <span class="block">まごころ込めてお手伝いします</span>
+            </h2>
+            <img src="./images/line.png" alt="線の画像" class="w-o-104 mx-auto my-o-32">
+            <div class="flex items-end justify-end w-o-615 md:w-o-630 mx-auto gap-o-40 mb-o-40">
+                <div class="">
+                    <div class="text-24 font-medium font-NotoSansJP">
+                        <p>株式会社ルミーナ</p>
+                        <p>代表取締役</p>
+                    </div>
+                    <p class="text-45 font-bold">堀 康樹</p>
+                </div>
+                <img src="./images/sec09_img01.jpg" alt="堀 康樹さんの画像" class="w-o-332 md:w-o-386">
+            </div>
+            <div class="w-o-688 md:w-o-1000 mx-auto border-4 md:border-[6px] border-blue border-double py-o-24">
+                <div class="w-o-615 md:w-o-863 mx-auto text-28 md:text-22 font-medium leading-[1.8]">
+                    <p>ありがたいことに当社は年間800件ほどのご依頼を頂いておりますが、常に意識しているのは<strong class="text-blue">1回1回の葬儀を大切にまごごろを込めて取り組む</strong>ということです。</p>
+                    <p class="mt-o-32">ルミーナを開業する2004年以前まで、私は丹波市で寝具店の2代目として、寝具業・ギフト業を営み、ご婚礼布団や香典返しのギフト商品を販売しておりました。小さな地域ですので「地域の方々の役に立ちたい。もっと寄り添えるお仕事がしたい」と考えるようになり、その後葬祭業のルミーナを開業いたしました。</p>
+                    <p class="mt-o-32">しかし開業したばかりで信用もなかったルミーナで、葬儀のご依頼をしていただける方は多くありませんでした。そして開業後100日が過ぎたころ、寝具店でお世話になったお得意様からご連絡をいただきました。「堀さん、始めちゃったんやねぇ。大変やろ。頑張ってなぁ」と声をかけていただき、まだ実績もないルミーナに葬儀のご依頼をいただきました。</p>
+                    <p class="mt-o-32">その時「ご依頼いただけるのは、当たり前のことではない。故人様にとってもご遺族様にとっても<strong class="text-blue">1度きりの葬儀だからこそ、1回1回を大切に心を込めて取り組もう</strong>」この時の想いが、今のルミーナの取り組みにも繋がっています。</p>
+                    <p class="mt-o-32">故人様とご遺族様にとって、<strong class="text-blue">葬儀はたった一度の大切で尊い時間。</strong>最期の時間を気兼ねなく安心してお過ごしいただけるよう、誠心誠意お手伝いさせていただきます。</p>
+                </div>
+            </div>
+        </section>
+        <!-- sec10 -->
+        <section class="py-o-80 md:py-o-120">
+            <h2 class=" font-bold text-40 text-center">
+                よくあるご質問
+            </h2>
+            <img src="./images/line.png" alt="線の画像" class="w-o-104 mx-auto my-o-32">
+            <div class="mt-o-48 w-o-688 md:w-o-1000 mx-auto">
+                <div class=" border border-gold">
+                    <div class="bg-gold text-30 md:text-26 text-white font-bold py-o-24 leading-o-18 cursor-pointer" onclick="displayAccordion(this)">
+                        <div class="w-o-615 md:w-o-925 mx-auto before:duration-300 relative before:absolute before:content-['\f106'] before:font-['Font_Awesome_5_Free'] before:font-bold before:right-0 before:text-40 before:-top-o-10">
+                            <p>年末年始・深夜でも急な相談や対応は<br class="md:hidden">してもらえますか？</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#FCF7EC] text-28 md:text-22 font-NotoSansJP font-medium duration-300 leading-o-0 overflow-hidden">
+                        <div class="w-o-615 md:w-o-925 mx-auto">
+                            <p>もちろん対応いたします。年末年始でも深夜でも、24時間、ご相談・お見積り・ご搬送も対応させていただきますので、些細なことでも何なりとご相談ください。また、年末年始でも、葬儀を執り行うことが可能ですが、1月1日はほとんどの火葬場が休みになっている場合がございますので、弊社にてお問合せください。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=" border border-gold mt-o-48">
+                    <div class="bg-gold text-30 md:text-26 text-white font-bold py-o-24 leading-o-18 cursor-pointer" onclick="displayAccordion(this)">
+                        <div class="w-o-615 md:w-o-925 mx-auto before:duration-300 relative before:absolute before:content-['\f106'] before:font-['Font_Awesome_5_Free'] before:font-bold before:right-0 before:text-40 before:-top-o-10">
+                            <p>菩提寺がなくても葬儀はできますか？</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#FCF7EC] text-28 md:text-22 font-NotoSansJP font-medium duration-300 leading-o-0 overflow-hidden">
+                        <div class="w-o-615 md:w-o-925 mx-auto">
+                            <p>はい、可能です。お寺さんの紹介も可能ですので、お気軽にご相談ください。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=" border border-gold mt-o-48">
+                    <div class="bg-gold text-30 md:text-26 text-white font-bold py-o-24 leading-o-18 cursor-pointer" onclick="displayAccordion(this)">
+                        <div class="w-o-615 md:w-o-925 mx-auto before:duration-300 relative before:absolute before:content-['\f106'] before:font-['Font_Awesome_5_Free'] before:font-bold before:right-0 before:text-40 before:-top-o-10">
+                            <p>自宅でも葬儀は可能でしょうか？</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#FCF7EC] text-28 md:text-22 font-NotoSansJP font-medium duration-300 leading-o-0 overflow-hidden">
+                        <div class="w-o-615 md:w-o-925 mx-auto">
+                            <p>もちろん可能ですが、ご自宅の間取りや葬儀の規模により、難しい場合もございます。事前にしっかりとご確認させていただきますので、ご安心ください。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=" border border-gold mt-o-48">
+                    <div class="bg-gold text-30 md:text-26 text-white font-bold py-o-24 leading-o-18 cursor-pointer" onclick="displayAccordion(this)">
+                        <div class="w-o-615 md:w-o-925 mx-auto before:duration-300 relative before:absolute before:content-['\f106'] before:font-['Font_Awesome_5_Free'] before:font-bold before:right-0 before:text-40 before:-top-o-10">
+                            <p>葬儀費用はいつまでにお支払いすれば<br class="md:hidden">いいですか？</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#FCF7EC] text-28 md:text-22 font-NotoSansJP font-medium duration-300 leading-o-0 overflow-hidden">
+                        <div class="w-o-615 md:w-o-925 mx-auto">
+                            <p>葬儀が終了した日から1週間以内に、銀行振込や現金、クレジットカードでお支払いいただいております。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=" border border-gold mt-o-48">
+                    <div class="bg-gold text-30 md:text-26 text-white font-bold py-o-24 leading-o-18 cursor-pointer" onclick="displayAccordion(this)">
+                        <div class="w-o-615 md:w-o-925 mx-auto before:duration-300 relative before:absolute before:content-['\f106'] before:font-['Font_Awesome_5_Free'] before:font-bold before:right-0 before:text-40 before:-top-o-10">
+                            <p>新型コロナウイルス感染症で亡くなった<br class="md:hidden">場合でも葬儀は可能でしょうか？</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#FCF7EC] text-28 md:text-22 font-NotoSansJP font-medium duration-300 leading-o-0 overflow-hidden">
+                        <div class="w-o-615 md:w-o-925 mx-auto">
+                            <p>はい、可能です。ご不明な点や不安な点がございましたら、お気軽にお問い合わせください。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=" border border-gold mt-o-48">
+                    <div class="bg-gold text-30 md:text-26 text-white font-bold py-o-24 leading-o-18 cursor-pointer" onclick="displayAccordion(this)">
+                        <div class="w-o-615 md:w-o-925 mx-auto before:duration-300 relative before:absolute before:content-['\f106'] before:font-['Font_Awesome_5_Free'] before:font-bold before:right-0 before:text-40 before:-top-o-10">
+                            <p>病院で亡くなった遺体を葬儀場で<br class="md:hidden">預かっていただくことは可能でしょうか？</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#FCF7EC] text-28 md:text-22 font-NotoSansJP font-medium duration-300 leading-o-0 overflow-hidden">
+                        <div class="w-o-615 md:w-o-925 mx-auto">
+                            <p>はい、可能です。葬儀場を安置施設としてご利用いただけます。病院までお迎えに上がりますので、万が一の際はご連絡ください。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="js-bottom">
+        <!-- cta -->
+        <section>
+            <div class=" bg-[url(../images/keyv_bg.jpg)] md:bg-[url(../images/keyv_bg_pc.jpg)] border-t-gold border-double border-t-[0.06rem]">
+                <div class="pt-o-24 pb-o-424 md:pt-o-56 md:pb-o-80 relative md:w-o-1000 md:mx-auto">
+                    <img src="./images/keyv_img01.png" alt="家族葬のらくおうグループ" class="block w-o-550 mx-auto md:ml-0 mb-o-24">
+                    <div class="text-center text-30 md:text-28 md:text-left font-bold tracking-o-100 leading-relaxed relative w-o-550 md:w-auto mx-auto mb-o-24 md:absolute right-0 md:[writing-mode:vertical-rl] z-10">
+                        <span class="block w-o-26 md:w-o-15 absolute left-0 md:left-o-3 md:top-o-262 md:rotate-[270deg]"><img src="./images/keyv_leftFlame.png" alt=""></span>
+                        <p class="md:bg-[#FCFAEE] md:pt-o-20">もっと無理なく見送りませんか？</p>
+                        <p class="md:bg-[#FCFAEE] md:mr-o-12 md:h-o-280 md:py-o-20">家族なんだから</p>
+                        <span class="block w-o-26 md:w-o-15 absolute right-0 bottom-0 md:bottom-auto md:-top-o-4 md:rotate-[270deg] md:right-o-4"><img src="./images/keyv_rigntFlame.png" alt=""></span>
+                    </div>
+                    <h2 class="text-center text-gold font-bold leading-snug mb-o-28 md:text-left md:relative md:z-10">
+                        <span class="text-40 block">三田市の葬儀なら</span>
+                        <span class="text-69 block">家族葬のルミーナ</span>
+                    </h2>
+                    <div class="w-o-550 mx-auto md:ml-0 md:relative md:z-10">
+                        <img src="./images/keyv_price.png" alt="地域密着のやさしい価格 130,000円〜" class="w-full block">
+                    </div>
+                    <img src="./images/keyv_flower.png" alt="" class=" absolute -left-[.72rem] bottom-0 w-o-695 md:w-o-830 md:left-auto md:-right-o-96 md:-bottom-o-110">
+                    <img src="./images/keyv_woman.png" alt="" class=" absolute -right-[.24rem] bottom-0 w-o-268 md:w-o-303 md:right-o-80">  
+                </div>
+                <div class="bg-gold relative md:mt-0">
+                    <div class="py-o-20 relative">
+                        <div class="flex items-center justify-between w-o-690 mx-auto mb-o-28">
+                            <img src="./images/keyv_medal01.png" alt="TV CM放送中" class="block w-o-148">
+                            <img src="./images/keyv_medal02.png" alt="全国葬儀件数  第1位 獲得" class="block w-o-250">
+                            <img src="./images/keyv_medal03.png" alt="ご依頼件数 17000件" class="block w-o-250">
+                        </div>
+                        <span class="block w-full h-o-1 bg-white my-o-20"></span>
+                        <p class="text-36 font-bold text-center text-white">まずはお気軽にご相談ください</p>
+                    </div>
+                </div>
+                <div class="md:flex md:items-center md:justify-between md:w-o-1000 md:mx-auto pt-o-48"> 
+                    <a class="block w-o-620 mx-auto order-2" href="tel:0120-637-024">
+                        <picture class="block">
+                            <source srcset="./images/cta_btn01_pc.png" media="(min-width: 768px)"/>
+                            <img src="./images/cta_btn01.png" alt="0120-637-024 通話無料：24時間365日" class="block mx-auto w-full md:w-o-480">
+                        </picture>
+                    </a>
+                    <a class="block w-o-620 mx-auto order-1" href="https://www.sousin.info/contact/" target="_blank">
+                        <picture class="block">
+                            <source srcset="./images/cta_btn02_pc.png" media="(min-width: 768px)"/>
+                            <img src="./images/cta_btn02.png" alt="0120-637-024 通話無料：24時間365日" class="block mx-auto w-full md:w-o-480">
+                        </picture>
+                    </a>
+                </div>
+                <img src="./images/keyv_box.png" alt="今なら事前にご連絡いただいた方限定　最大10万円の割引券贈呈" class="w-o-740 md:w-o-828 m-auto">
+                <div class="w-o-688 mx-auto pb-o-60 md:w-o-768">
+                    <p class="text-17 font-medium md:text-16">※1 無料の会員登録、資料請求後、割引券利用時の価格です。</p>
+                    <p class="text-17 font-medium mt-o-8 md:text-16">※2 グループ会社実績。TPCマーケティングリサーチ㈱調べ争議件数（葬儀専門会社部門にてFCを除く2021年度）（葬儀専門会社とは葬儀のみを事業として扱い、自社で葬儀施工まで行う会社のこと）</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- sec11 -->
+        <section class="bg-[url(../images/sec11_bg.png)] md:bg-[url(../images/sec11_bg_pc.png)] bg-[length:100%_auto] bg-top bg-no-repeat py-o-200 md:py-o-100">   
+            <div class="text-33 md:text-28 font-medium text-center leading-o-18">
+                <div>
+                    <p>私たちはご家族様がご遺族様との</p>
+                    <p>最期のひとときを</p>
+                    <p>安心して過ごしていただけるよう</p>
+                    <p>心を込めてお手伝いさせていただいています</p>
+                </div>
+                <div class="mt-o-32">
+                    <p>葬儀について不安なことや</p>
+                    <p>わからないことがございましたら</p>
+                </div>
+                <p class="mt-o-32">いつでもお気軽にご相談ください</p>
+            </div>
+        </section>
+        <footer class="bg-[#FCF7EC] py-o-120 md:py-o-100">
+            <div class="md:flex md:items-center md:justify-start md:gap-o-44 md:w-o-880 md:mx-auto"> 
+                <img src="./images/logo.png" alt="家族葬のルミーナ" class="w-o-304 md:w-o-340 mx-auto md:mx-0">
+                <div class="text-32 md:text-24 md:text-left font-medium text-center mt-o-60 md:mt-0 leading-o-18">
+                    <p>会社名　株式会社ルミーナ</p>
+                    <p>〒669-3831<br class="md:hidden">　兵庫県丹波市青垣町市原837</p>
+                    <p>代表取締役	　堀 康樹</p>
+                </div>
+            </div>
+        </footer>
+        </div>
+        <p class="text-center text-32 md:text-20 font-medium bg-[#575757] py-o-4 md:py-o-20 text-white font-NotoSansJP">©2021 家族葬のルミーナ</p>
+        <div id="js-holdbtn" class="bg-[#707070] pointer-events-none opacity-0 font-NotoSansJP leading-o-13 py-o-32 md:pb-o-8 md:pt-o-4 border-t-4 md:border-t-[0.06rem] border-[#BEB572] border-double fixed w-full bottom-0 md:text-center z-50 duration-300">
+            <p class="text-center font-medium text-white text-29 md:inline-block">今なら事前にご連絡いただいた方限定</p><p class="mb-o-16 text-center text-white text-29 md:inline-block">最大<span class="font-bold inline-block relative before:content-[''] before:absolute before:w-full before:h-o-6 before:bg-[#EB974E] before:-bottom-o-6"><strong class="text-46">10</strong>万円</span>の割引券贈呈</p>
+            <div class="flex justify-between w-o-689 md:w-o-1200 mx-auto">
+                <a class="block w-o-328 md:w-o-584 mx-auto md:order-2" href="tel:0120-637-024">
+                    <picture class="block">
+                        <source srcset="./images/holdbtn01_pc.png" media="(min-width: 768px)"/>
+                        <img src="./images/holdbtn01.png" alt="0120-637-024 通話無料：24時間365日" class="block mx-auto w-full md:w-o-480">
+                    </picture>
+                </a>
+                <a class="block w-o-328 md:w-o-584 mx-auto md:order-1" href="https://www.sousin.info/contact/" target="_blank">
+                    <picture class="block">
+                        <source srcset="./images/holdbtn02_pc.png" media="(min-width: 768px)"/>
+                        <img src="./images/holdbtn02.png" alt="0120-637-024 通話無料：24時間365日" class="block mx-auto w-full md:w-o-480">
+                    </picture>
+                </a>
+            </div>
+        </div>
+
+        <!-- slider -->
+        <div class="opacity-0 -z-10 js-slider duration-300 fixed  w-full inset-0 m-auto" >
+            <div class="h-screen bg-[rgba(120,123,131,0.8)] duration-300" onclick="displaySlider(0)"></div>
+            <div class=" absolute m-auto w-full top-[calc(50%_-_4.3rem)] md:top-[calc(50%_-_2.91rem)]">
+                <!-- Slider main container -->
+                <div class="swiper0">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img src="./images/sec03_slider01_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider01_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider01_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+                
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                
+                    <!-- If we need scrollbar -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+            </div>
+        </div>
+        <div class="opacity-0 -z-10 js-slider duration-300 fixed  w-full inset-0 m-auto" >
+            <div class="h-screen bg-[rgba(120,123,131,0.8)] duration-300" onclick="displaySlider(1)"></div>
+            <div class=" absolute m-auto w-full top-[calc(50%_-_4.3rem)] md:top-[calc(50%_-_2.91rem)]">
+                <!-- Slider main container -->
+                <div class="swiper1">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img src="./images/sec03_slider02_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider02_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider02_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+                
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                
+                    <!-- If we need scrollbar -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+            </div>
+        </div>
+        <div class="opacity-0 -z-10 js-slider duration-300 fixed  w-full inset-0 m-auto" >
+            <div class="h-screen bg-[rgba(120,123,131,0.8)] duration-300" onclick="displaySlider(2)"></div>
+            <div class=" absolute m-auto w-full top-[calc(50%_-_4.3rem)] md:top-[calc(50%_-_2.91rem)]">
+                <!-- Slider main container -->
+                <div class="swiper2">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img src="./images/sec03_slider03_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider03_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider03_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+                
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                
+                    <!-- If we need scrollbar -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+            </div>
+        </div>
+        <div class="opacity-0 -z-10 js-slider duration-300 fixed  w-full inset-0 m-auto" >
+            <div class="h-screen bg-[rgba(120,123,131,0.8)] duration-300" onclick="displaySlider(3)"></div>
+            <div class=" absolute m-auto w-full top-[calc(50%_-_4.3rem)] md:top-[calc(50%_-_2.91rem)]">
+                <!-- Slider main container -->
+                <div class="swiper3">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img src="./images/sec03_slider04_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider04_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider04_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+                
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                
+                    <!-- If we need scrollbar -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //スライダーのモーダル
+        const displaySlider = (num)=>{
+            const slider = document.getElementsByClassName('js-slider');
+            slider[num].classList.toggle('opacity-0')
+            slider[num].classList.toggle('-z-10')
+        }
+        for(let i=0; i < 4; i++){
+                const swiper =new Swiper('.swiper'+i, {
+                loop: true,
+                // If we need pagination
+                // pagination: {
+                //     el: '.swiper-pagination',
+                // },
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                });
+                
+            }
+        
+        //アコーディオンの開閉
+        function displayAccordion(target){
+            //矢印置き換え 
+            target.firstElementChild.classList.toggle("before:rotate-180");
+
+            //文章の表示
+            target.nextElementSibling.classList.toggle('leading-o-18');
+            target.nextElementSibling.classList.toggle('leading-o-0');
+            target.nextElementSibling.classList.toggle('py-o-24');
+        }
+
+        //追尾ボタン
+        const btn = document.getElementById('js-holdbtn');
+        let bodyHeight = document.body.clientHeight;
+        let topHeight = document.getElementById('js-top').clientHeight;
+        let bottomHeight = document.getElementById('js-bottom').clientHeight;
+
+        addEventListener('scroll',(event)=>{
+            let scrollHeight = window.scrollY;
+
+            if (scrollHeight < (topHeight)) {
+                btn.classList.add('opacity-0');
+                btn.classList.add('pointer-events-none');
+            } else if ((bodyHeight - bottomHeight) < scrollHeight) {
+                btn.classList.add('opacity-0');
+                btn.classList.add('pointer-events-none');
+            } else {
+                btn.classList.remove('opacity-0');
+                btn.classList.remove('pointer-events-none');
+            }
+
+        })
+
+
+
+
+
+    </script>
 </body>
 
 </html>
