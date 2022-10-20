@@ -137,7 +137,7 @@ OGP
         </header>
         <!-- keyv -->
         <section>
-            <div class=" bg-[url(../images/keyv_bg.png)] md:bg-[url(../images/keyv_bg_pc.png)]">
+            <div class=" bg-[url(../images/keyv_bg.jpg)] md:bg-[url(../images/keyv_bg_pc.jpg)]">
                 <div class="pt-o-24 pb-o-424 md:pt-o-56 md:pb-o-80 relative md:w-o-1000 md:mx-auto">
                     <img src="./images/keyv_img01.png" alt="家族葬のらくおうグループ" class="block w-o-550 mx-auto md:ml-0 mb-o-24">
                     <div class="text-center text-30 md:text-28 md:text-left font-bold tracking-o-100 leading-relaxed relative w-o-550 md:w-auto mx-auto mb-o-24 md:absolute right-0 md:[writing-mode:vertical-rl] z-10">
@@ -209,7 +209,7 @@ OGP
             </div>
         </section>
         <!-- sec03 -->
-        <section class="pt-o-72 pb-o-40 md:pb-o-88 bg-[url(../images/sec03_bg.png)] md:bg-[url(../images/sec03_bg_pc.png)] bg-cover bg-no-repeat">
+        <section class="pt-o-72 pb-o-40 md:pb-o-88 bg-[url(../images/sec03_bg.jpg)] md:bg-[url(../images/sec03_bg_pc.jpg)] bg-cover bg-no-repeat">
             <div class="md:mx-auto mx-auto w-o-671 md:w-o-1000">
                 <h2>
                     <picture class="block">
@@ -364,6 +364,84 @@ OGP
                 </div>
             </div>
         </section>
+        <!-- sec04 -->
+        <section>
+            <h2>
+                <picture class="block">
+                    <source srcset="./images/sec04_head_pc.png" media="(min-width: 768px)"/><!-- 幅700px以上なら表示 -->
+                    <img src="./images/sec03_head.png" alt="どのプランでも品質は変わりませんルミーナの選べる3つのプラン" class="block mx-auto w-o-671 md:w-o-660 mb-o-48">
+                </picture>
+            </h2>
+            <div class="">
+                <div class="">
+                    <div class="w-o-591 mx-auto">
+                        <div class="mb-o-28">
+                            <p class="text-32 font-bold">想いはそのまま  費用は最小限に</p>
+                            <p class="text-51 font-bold">火葬式プラン</p>
+                        </div>
+                        <img src="./images/sec04_price01.png" alt="会員価格130,000円〜" class="w-full block">
+                    </div>
+                    <div>
+                        <img src="./images/sec04_img01.png" alt="葬儀のイメージ画像" class="w-full block">
+                        <img src="./images/sec04_flow01.png" alt="葬儀の流れ" class="block w-o-615 mx-auto -mt-o-80 md:w-full"> 
+                    </div>
+                </div>
+                <div class="text-28 md:text-22 font-medium font-NotoSansJP w-o-615 mx-auto mt-o-40 leading-o-18 pb-o-40 md:pb-0">
+                    <p>お通夜と告別式は行わず、火葬のみを行います。可能な限り葬儀の費用を抑え、身内だけで静かにお見送りしたい方におすすめのプランです。</p>
+                </div>
+                <div class="bg-[url(../images/sec04_checkBg.jpg)] md:bg-[url(../images/sec04_checkBg_pc.jpg)] bg-cover pt-o-32">
+                    <img src="./images/sec04_checkTitle.png" alt="こんな方におすすめ" class="w-o-420 mx-auto">
+                    <ul class="w-o-688 mx-auto bg-white border-gold border-double border-[0.12rem] px-o-40 pt-o-48 pb-o-32 -mt-o-32">
+                        <li>
+                            <div class="flex items-center gap-o-12">
+                                <span class="block w-o-28 h-o-28 rounded-[0.04rem] border-[0.02rem] border-[#898989] relative before:content-[''] before:border-b-[0.04rem] before:border-l-[0.08rem] before:-rotate-45 before:border-blue"></span><p class="text-28 font-medium font-NotoSansJP">可能な限り葬儀の費用を抑えたい</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- slider -->
         <div class="opacity-0 -z-10 js-slider duration-300 fixed  w-full inset-0 m-auto" >
             <div class="h-screen bg-[rgba(120,123,131,0.8)] duration-300" onclick="displaySlider(0)"></div>
             <div class=" absolute m-auto w-full top-[calc(50%_-_4.3rem)] md:top-[calc(50%_-_2.91rem)]">
@@ -471,23 +549,15 @@ OGP
             for(let i=0; i < 4; i++){
                 const swiper =new Swiper('.swiper'+i, {
                 loop: true,
-                
-
                 // If we need pagination
                 // pagination: {
                 //     el: '.swiper-pagination',
                 // },
-
                 // Navigation arrows
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
                 },
-
-                // And if we need scrollbar
-                // scrollbar: {
-                //     el: '.swiper-scrollbar',
-                // },
                 });
                 
             }
