@@ -28,24 +28,470 @@ OGP
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <![endif]-->
     <link rel="icon" href="images/favicon.ico">
-    <!--NotoSans-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900&display=swap&subset=japanese">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
     <link rel="prefetch" href="js/function.js">
     <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="./lib/swiper/swiper.min.css"/>
+    <script src="./lib/swiper/swiper-bundle.min.js"></script>
 </head>
 <style>
-    /* 以下テストサーバ用のCSSなので最後に消す */
-    
-    #__bs_notify__ {
-        font-size: 20px !important;
-        background-color: rgba(0, 0, 0, .3) !important;
+    .swiper-initialized{
+        position: relative;
     }
+    .swiper-button-prev{
+        position: absolute;
+        z-index: 1;
+        top: 2rem;
+        left: 0.2rem;
+    }
+    .swiper-button-prev::before{
+        content: "\f053";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 700;
+        font-size: 0.8rem;
+        top: 0;
+        color: #B9A261;
+    }
+    .swiper-button-next{
+        position: absolute;
+        z-index: 1;
+        top: 2rem;
+        right: 0.2rem;
+    }
+    .swiper-button-next::before{
+        content: "\f054";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 700;
+        font-size: 0.8rem;
+        top: 0;
+        color: #B9A261;
+    }
+    .swiper-wrapper{
+        position: relative;
+    }
+    @media screen and (min-width:768px){
+        .swiper-button-prev{
+            left: 2.8rem;
+        }
+        .swiper-button-next{
+            right: 2.8rem;
+            }
+        }
 </style>
+<script src="https://kit.fontawesome.com/eea364082e.js" crossorigin="anonymous"></script>
+<body class="text-[20px]">
+    <div class=" overflow-hidden relative">
+        <header>
+            <div class="py-o-20 w-o-689 md:w-o-1450 mx-auto flex justify-between items-center">
+                <img src="./images/logo.png" alt="家族葬のルミーナ" class="w-o-228 block">
+                <div class="hidden md:block">
+                    <ul class="flex items-end gap-o-30">
+                        <li class="text-center">
+                            <a href="">
+                                <img src="./images/header_icon01.png" alt="" class="w-o-32 block mx-auto mb-o-4">
+                                <p class="text-16 font-bold block">選べる葬儀場</p>
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a href="">
+                                <img src="./images/header_icon02.png" alt="" class="w-o-28 block mx-auto mb-o-4">
+                                <p class="text-16 font-bold block">料金・プラン</p>
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a href="">
+                                <img src="./images/header_icon03.png" alt="" class="w-o-25 block mx-auto mb-o-4">
+                                <p class="text-16 font-bold block">ルミーナのこだわり</p>
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a href="">
+                                <img src="./images/header_icon04.png" alt="" class="w-o-30 block mx-auto mb-o-4">
+                                <p class="text-16 font-bold block">葬儀の流れ</p>
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a href="">
+                                <img src="./images/header_icon05.png" alt="" class="w-o-43 block mx-auto mb-o-4">
+                                <p class="text-16 font-bold block">よくあるご質問</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex items-center gap-o-8">
+                    <img src="./images/telIcon.png" alt="電話のアイコン" class="w-o-40">
+                    <p class="font-BarlowCondensed text-blue text-54">0120-637-024</p>
+                </div>
+                <div class="bg-[#F4F4F4] w-[40px] flex items-center justify-center py-o-16 rounded-sm md:hidden">
+                    <div class="flex gap-o-6 flex-wrap w-[28px] text-center justify-center">
+                        <span class="w-full h-[3px] block bg-[#5A5655] rounded-md"></span>
+                        <span class="w-full h-[3px] block bg-[#5A5655] rounded-md"></span>
+                        <span class="w-full h-[3px] block bg-[#5A5655] rounded-md"></span>
+                        <p class=" font-NotoSansJP text-10 text-center">menu</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- keyv -->
+        <section>
+            <div class=" bg-[url(../images/keyv_bg.png)] md:bg-[url(../images/keyv_bg_pc.png)]">
+                <div class="pt-o-24 pb-o-424 md:pt-o-56 md:pb-o-80 relative md:w-o-1000 md:mx-auto">
+                    <img src="./images/keyv_img01.png" alt="家族葬のらくおうグループ" class="block w-o-550 mx-auto md:ml-0 mb-o-24">
+                    <div class="text-center text-30 md:text-28 md:text-left font-bold tracking-o-100 leading-relaxed relative w-o-550 md:w-auto mx-auto mb-o-24 md:absolute right-0 md:[writing-mode:vertical-rl] z-10">
+                        <span class="block w-o-26 md:w-o-15 absolute left-0 md:left-o-3 md:top-o-262 md:rotate-[270deg]"><img src="./images/keyv_leftFlame.png" alt=""></span>
+                        <p class="md:bg-[#FCFAEE] md:pt-o-20">もっと無理なく見送りませんか？</p>
+                        <p class="md:bg-[#FCFAEE] md:mr-o-12 md:h-o-280 md:py-o-20">家族なんだから</p>
+                        <span class="block w-o-26 md:w-o-15 absolute right-0 bottom-0 md:bottom-auto md:-top-o-4 md:rotate-[270deg] md:right-o-4"><img src="./images/keyv_rigntFlame.png" alt=""></span>
+                    </div>
+                    <h2 class="text-center text-gold font-bold leading-snug mb-o-28 md:text-left md:relative md:z-10">
+                        <span class="text-40 block">三田市の葬儀なら</span>
+                        <span class="text-69 block">家族葬のルミーナ</span>
+                    </h2>
+                    <div class="w-o-550 mx-auto md:ml-0 md:relative md:z-10">
+                        <img src="./images/keyv_price.png" alt="地域密着のやさしい価格 130,000円〜" class="w-full block">
+                    </div>
+                    <img src="./images/keyv_flower.png" alt="" class=" absolute -left-[.72rem] bottom-0 w-o-695 md:w-o-830 md:left-auto md:-right-o-96 md:-bottom-o-110">
+                    <img src="./images/keyv_woman.png" alt="" class=" absolute -right-[.24rem] bottom-0 w-o-268 md:w-o-303 md:right-o-80">  
+                </div>
+            </div>
+            <div class="bg-gold relative -m-o-80 md:mt-0">
+                <div class="pt-o-36 pb-o-96 relative">
+                    <div class="flex items-center justify-between w-o-690 mx-auto mb-o-28">
+                        <img src="./images/keyv_medal01.png" alt="TV CM放送中" class="block w-o-148">
+                        <img src="./images/keyv_medal02.png" alt="全国葬儀件数  第1位 獲得" class="block w-o-250">
+                        <img src="./images/keyv_medal03.png" alt="ご依頼件数 17000件" class="block w-o-250">
+                    </div>
+                    <ul class="text-17 font-medium w-o-690 mx-auto">
+                        <li class="mb-o-8">※1 無料の会員登録、資料請求後、割引券利用時の価格です。</li>
+                        <li>※2 グループ会社実績。TPCマーケティングリサーチ㈱調べ争議件数（葬儀専門会社部門にてFCを除く2021年度）（葬儀専門会社とは葬儀のみを事業として扱い、自社で葬儀施工まで行う会社のこと）</li>
+                    </ul>
+                    <img src="./images/keyv_box.png" alt="今なら事前にご連絡いただいた方限定　最大10万円の割引券贈呈" class=" absolute -bottom-o-260 w-o-688 md:w-o-768 left-0 right-0 m-auto">
+                </div>
+            </div>
+        </section>
+        <!-- sec01 -->
+        <section>
+            <div class="bg-[url(../images/sec01_bg.png)] bg-[length:100%_auto] bg-no-repeat md:bg-[url(../images/sec01_bg_pc.png)] bg-right-top">
+                <h2 class="[writing-mode:vertical-rl] mx-auto pt-o-400 leading-[2] tracking-o-100 text-32 mb-o-88 md:text-22 md:leading-[2.2]">
+                    <span class="block">「ありがとう」を伝える</span>
+                    <span class="block">大切な場所だから</span>
+                    <span class="block">気兼ねなく安心して過ごせる</span>
+                    <span class="block">時間をご提供したい</span>
+                    <span class="block">私たちルミーナはそんな想いで</span>
+                    <span class="block">葬儀を行なっております。</span>
+                </h2>
+                <div class="md:flex md:items-center md:justify-center md:gap-o-40 md:mt-o-148">
+                    <picture class="block">
+                        <source srcset="./images/sec01_img01_pc.png" media="(min-width: 768px)"/><!-- 幅700px以上なら表示 -->
+                        <img src="./images/sec01_img01.png" alt="女性の画像" class="block w-full md:w-o-500">
+                    </picture>
+                    <div class="text-30 md:text-20 font-medium w-o-688 mx-auto mt-o-68 md:mt-0 tracking-o-30 leading-loose md:mx-0 md:w-o-473">
+                        <p>大切な方とのお別れには様々な想いや、感情が内面にわき上がるモノだと思います。</p>
+                        <p>だからこそご遺族の悲しみを和らげる、ホスピタリティの心を大切にし「選んで良かった」と思っていただける真心の込もったサポートをさせていただきます。</p>
+                    </div>
+                    <img src="./images/sec01_img02.png" alt="男性と女性の画像" class="block w-full mt-o-40 md:hidden">
+                </div>
+            </div>
+        </section>
+        <!-- sec02 -->
+        <section class="pt-o-64">
+            <div class="w-o-688 md:w-o-768 mx-auto">
+                <div class=" font-medium flex items-end justify-center">
+                    <h2 class="flex items-center justify-center gap-o-12"><span class=" font-NotoSansJP tracking-[0.05em] text-blue text-74 m:text-82">TV CM</span><span class="text-59 md:text-65">放送中</span></h2>
+                    <img src="./images/sec02_dec01.png" alt="女性の画像" class="block w-o-185">
+                </div>
+                <div class="w-full aspect-video ">
+                    <iframe class=" w-full h-full" width="" height="" src="https://www.youtube.com/embed/uZFX-OCyR4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        <!-- sec03 -->
+        <section class="pt-o-72 pb-o-40 md:pb-o-88 bg-[url(../images/sec03_bg.png)] md:bg-[url(../images/sec03_bg_pc.png)] bg-cover bg-no-repeat">
+            <div class="md:mx-auto mx-auto w-o-671 md:w-o-1000">
+                <h2>
+                    <picture class="block">
+                        <source srcset="./images/sec03_head_pc.png" media="(min-width: 768px)"/><!-- 幅700px以上なら表示 -->
+                        <img src="./images/sec03_head.png" alt="三田市の各地にある葬儀場・火葬場をお選びいただけます" class="block mx-auto w-o-671 md:w-o-660 mb-o-48">
+                    </picture>
+                </h2>
+                <div class="w-full aspect-video">
+                    <iframe src="https://www.google.com/maps/d/embed?mid=15TKjJA9A83OY2FG_UMfCjU7LLiSWpmI&ehbc=2E312F" class="w-full h-full"></iframe>
+                </div>
+            </div>
+            <div class=" mt-o-48  md:w-o-1000 md:flex md:flex-wrap md:items-start md:justify-between mx-auto">
+                <div class=" w-o-688 md:w-o-455 mx-auto md:mx-0 bg-white border-gold border-double border-[0.06rem]">
+                    <div class="w-o-612 md:w-o-403 mx-auto pt-o-28 pb-o-36 md:py-o-20 ">
+                        <h3 class="text-46 md:text-28 text-center text-gold font-bold mb-o-20">ルミーナホール三田中央</h3>
+                        <ul class=" font-medium text-30 md:text-20 mb-o-28 font-NotoSansJP">
+                            <li>兵庫県三田市三田町12-37</li>
+                            <li>規模：〜80人</li>
+                        </ul>
+                        <div class="flex items-center gap-o-12 mb-o-12">
+                            <img src="./images/sec03_mapIcon.png" alt="pinアイコン" class="w-o-28 md:w-o-19 block">
+                            <p class="text-30 md:text-16 font-bold tracking-o-30 font-NotoSansJP">JR福知山線「三田駅」から徒歩約7分</p>
+                        </div>
+                        <img src="./images/sec03_slider01_img01.png" alt="" class="w-o-612 mx-auto cursor-pointer" onclick="displaySlider(0)">
+                        <p class=" font-NotoSansJP font-medium text-28 md:text-20 my-o-40 leading-relaxed">写真をタップすると、大きな写真でご確認いただけます。</p>
+                        <ul class="flex flex-wrap justify-between">
+                            <li>
+                                <img src="./images/sec03_icon01.png" alt="駐車場" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon02.png" alt="駅近く" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon03.png" alt="安置可" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon04.png" alt="控室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon05.png" alt="浴室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon06.png" alt="バリアフリー" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class=" w-o-688 md:w-o-455 mx-auto md:mx-0 bg-white border-gold border-double border-[0.06rem] mt-o-48 md:mt-0">
+                    <div class="w-o-612 md:w-o-403 mx-auto pt-o-28 pb-o-36 md:py-o-20 ">
+                        <h3 class="text-46 md:text-28 text-center text-gold font-bold mb-o-20">ルミーナホール三田中央</h3>
+                        <ul class=" font-medium text-30 md:text-20 mb-o-28 font-NotoSansJP">
+                            <li>兵庫県三田市三田町12-37</li>
+                            <li>規模：〜80人</li>
+                        </ul>
+                        <div class="flex items-center gap-o-12 mb-o-12">
+                            <img src="./images/sec03_mapIcon.png" alt="pinアイコン" class="w-o-28 md:w-o-19 block">
+                            <p class="text-30 md:text-16 font-bold tracking-o-30 font-NotoSansJP">JR福知山線「三田駅」から徒歩約7分</p>
+                        </div>
+                        <img src="./images/sec03_slider02_img01.png" alt="" class="w-o-612 mx-auto cursor-pointer" onclick="displaySlider(1)">
+                        <p class=" font-NotoSansJP font-medium text-28 md:text-20 my-o-40 leading-relaxed">写真をタップすると、大きな写真でご確認いただけます。</p>
+                        <ul class="flex flex-wrap justify-between">
+                            <li>
+                                <img src="./images/sec03_icon01.png" alt="駐車場" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon02.png" alt="駅近く" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon03.png" alt="安置可" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon04.png" alt="控室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon05.png" alt="浴室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon06.png" alt="バリアフリー" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class=" w-o-688 md:w-o-455 mx-auto md:mx-0 bg-white border-gold border-double border-[0.06rem] mt-o-100">
+                    <div class="w-o-612 md:w-o-403 mx-auto pt-o-28 pb-o-36 md:py-o-20 ">
+                        <h3 class="text-46 md:text-28 text-center text-gold font-bold mb-o-20">ルミーナホール三田中央</h3>
+                        <ul class=" font-medium text-30 md:text-20 mb-o-28 font-NotoSansJP">
+                            <li>兵庫県三田市三田町12-37</li>
+                            <li>規模：〜80人</li>
+                        </ul>
+                        <div class="flex items-center gap-o-12 mb-o-12">
+                            <img src="./images/sec03_mapIcon.png" alt="pinアイコン" class="w-o-28 md:w-o-19 block">
+                            <p class="text-30 md:text-16 font-bold tracking-o-30 font-NotoSansJP">JR福知山線「三田駅」から徒歩約7分</p>
+                        </div>
+                        <img src="./images/sec03_slider03_img01.png" alt="" class="w-o-612 mx-auto cursor-pointer" onclick="displaySlider(2)">
+                        <p class=" font-NotoSansJP font-medium text-28 md:text-20 my-o-40 leading-relaxed">写真をタップすると、大きな写真でご確認いただけます。</p>
+                        <ul class="flex flex-wrap justify-between">
+                            <li>
+                                <img src="./images/sec03_icon01.png" alt="駐車場" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon02.png" alt="駅近く" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon03.png" alt="安置可" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon04.png" alt="控室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon05.png" alt="浴室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon06.png" alt="バリアフリー" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class=" w-o-688 md:w-o-455 mx-auto md:mx-0 bg-white border-gold border-double border-[0.06rem] mt-o-48 md:mt-o-100">
+                    <div class="w-o-612 md:w-o-403 mx-auto pt-o-28 pb-o-36 md:py-o-20 ">
+                        <h3 class="text-46 md:text-28 text-center text-gold font-bold mb-o-20">ルミーナホール三田中央</h3>
+                        <ul class=" font-medium text-30 md:text-20 mb-o-28 font-NotoSansJP">
+                            <li>兵庫県三田市三田町12-37</li>
+                            <li>規模：〜80人</li>
+                        </ul>
+                        <div class="flex items-center gap-o-12 mb-o-12">
+                            <img src="./images/sec03_mapIcon.png" alt="pinアイコン" class="w-o-28 md:w-o-19 block">
+                            <p class="text-30 md:text-16 font-bold tracking-o-30 font-NotoSansJP">JR福知山線「三田駅」から徒歩約7分</p>
+                        </div>
+                        <img src="./images/sec03_slider04_img01.png" alt="" class="w-o-612 mx-auto cursor-pointer" onclick="displaySlider(3)">
+                        <p class=" font-NotoSansJP font-medium text-28 md:text-20 my-o-40 leading-relaxed">写真をタップすると、大きな写真でご確認いただけます。</p>
+                        <ul class="flex flex-wrap justify-between">
+                            <li>
+                                <img src="./images/sec03_icon01.png" alt="駐車場" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon02.png" alt="駅近く" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon03.png" alt="安置可" class="w-o-190 md:w-o-128">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon04.png" alt="控室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon05.png" alt="浴室" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                            <li>
+                                <img src="./images/sec03_icon06.png" alt="バリアフリー" class="w-o-190 md:w-o-128 mt-o-16">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="opacity-0 -z-10 js-slider duration-300 fixed  w-full inset-0 m-auto" >
+            <div class="h-screen bg-[rgba(120,123,131,0.8)] duration-300" onclick="displaySlider(0)"></div>
+            <div class=" absolute m-auto w-full top-[calc(50%_-_4.3rem)] md:top-[calc(50%_-_2.91rem)]">
+                <!-- Slider main container -->
+                <div class="swiper0">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img src="./images/sec03_slider01_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider01_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider01_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+                
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                
+                    <!-- If we need scrollbar -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+            </div>
+        </div>
+        <div class="opacity-0 -z-10 js-slider duration-300 fixed  w-full inset-0 m-auto" >
+            <div class="h-screen bg-[rgba(120,123,131,0.8)] duration-300" onclick="displaySlider(1)"></div>
+            <div class=" absolute m-auto w-full top-[calc(50%_-_4.3rem)] md:top-[calc(50%_-_2.91rem)]">
+                <!-- Slider main container -->
+                <div class="swiper1">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img src="./images/sec03_slider02_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider02_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider02_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+                
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                
+                    <!-- If we need scrollbar -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+            </div>
+        </div>
+        <div class="opacity-0 -z-10 js-slider duration-300 fixed  w-full inset-0 m-auto" >
+            <div class="h-screen bg-[rgba(120,123,131,0.8)] duration-300" onclick="displaySlider(2)"></div>
+            <div class=" absolute m-auto w-full top-[calc(50%_-_4.3rem)] md:top-[calc(50%_-_2.91rem)]">
+                <!-- Slider main container -->
+                <div class="swiper2">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img src="./images/sec03_slider03_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider03_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider03_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+                
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                
+                    <!-- If we need scrollbar -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+            </div>
+        </div>
+        <div class="opacity-0 -z-10 js-slider duration-300 fixed  w-full inset-0 m-auto" >
+            <div class="h-screen bg-[rgba(120,123,131,0.8)] duration-300" onclick="displaySlider(3)"></div>
+            <div class=" absolute m-auto w-full top-[calc(50%_-_4.3rem)] md:top-[calc(50%_-_2.91rem)]">
+                <!-- Slider main container -->
+                <div class="swiper3">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img src="./images/sec03_slider04_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider04_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    <div class="swiper-slide"><img src="./images/sec03_slider04_img01.png" alt="葬儀場のイメージ画像" class="block w-full md:w-o-660 md:mx-auto"></div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+                
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                
+                    <!-- If we need scrollbar -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const displaySlider = (num)=>{
+            const slider = document.getElementsByClassName('js-slider');
+            slider[num].classList.toggle('opacity-0')
+            slider[num].classList.toggle('-z-10')
+        }
 
-<body>
-    <p class="font-bold text-green text-39">サーバテスト</p>
+            for(let i=0; i < 4; i++){
+                const swiper =new Swiper('.swiper'+i, {
+                loop: true,
+                
+
+                // If we need pagination
+                // pagination: {
+                //     el: '.swiper-pagination',
+                // },
+
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+                // And if we need scrollbar
+                // scrollbar: {
+                //     el: '.swiper-scrollbar',
+                // },
+                });
+                
+            }
+    </script>
 </body>
 
 </html>
